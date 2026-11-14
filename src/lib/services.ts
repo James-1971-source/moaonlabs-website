@@ -35,7 +35,21 @@ export const services: Service[] = [
     note: '판매 상품과 가격·배송·교환 조건은 네이버 스마트스토어의 안내를 기준으로 합니다.',
   },
   {
-    slug: 'websites', name: '홈페이지 제작', english: 'WEB EXPERIENCE', category: '제작 서비스', status: '운영 중', number: '03',
+    slug: 'vidson', name: '비즈온', english: 'VIDS ON', category: '디지털 서비스', status: '운영 중', number: '03',
+    tagline: '설치 없이,\n이야기를 영상으로.',
+    description: '브라우저에서 바로 쓰는 영상 편집기. 사진·영상·글자·음악으로 장면을 만들고 MP4로 저장합니다.',
+    detail: '비즈온은 모아온랩스가 만든 영상 편집기입니다. 프로그램을 설치하지 않고 웹 브라우저에서 바로 쓰며, 사진과 영상은 내 PC 밖으로 보내지 않고 브라우저 안에서 처리합니다. 템플릿, 자막, 장면 전환, 인포그래픽, 쇼츠 도구, 3D 소재까지 담았고, 청소년과 복지시설이 쓸 수 있도록 무료로 공개하고 있습니다.',
+    audience: ['청소년 영상 창작 수업', '복지시설·기관 홍보 담당자', '유튜브·쇼츠 제작자'],
+    features: [
+      { title: '설치 없이 바로', text: 'Chrome·Edge 브라우저에서 주소만 열면 시작합니다. 완성한 영상은 Full HD MP4로 저장합니다.' },
+      { title: '내 PC 안에서 처리', text: '사진·영상·음성을 서버로 올리지 않습니다. 작업은 이 브라우저에 자동 저장되고, 파일로 백업할 수 있습니다.' },
+      { title: '쇼츠부터 강의 영상까지', text: '자막 디자인, 쇼츠 레이아웃, 인포그래픽, 장면 카메라, 3D 소재와 검수 도구를 갖췄습니다.' },
+    ], steps: ['비즈온 열기', '템플릿·사진으로 장면 만들기', 'MP4로 저장·공유'], tags: ['영상 편집', '쇼츠', '무료 공개'],
+    external: 'https://vidson.moaonlabs.com/', externalLabel: '비즈온 시작하기',
+    note: 'PC의 Chrome 또는 Edge 최신 버전에서 사용하세요. 자동 저장은 같은 PC·같은 브라우저에만 남으니 중요한 작업은 파일 백업을 함께 해 두세요. 일부 기능(Windows 음성·AI 원고 연결)은 PC 설치 버전에서 제공합니다.',
+  },
+  {
+    slug: 'websites', name: '홈페이지 제작', english: 'WEB EXPERIENCE', category: '제작 서비스', status: '운영 중', number: '04',
     tagline: '첫인상부터,\n다음 행동까지.',
     description: '기관과 브랜드의 이야기를 담고, 방문자가 필요한 정보에 쉽게 도달하는 웹사이트를 만듭니다.',
     detail: '보기 좋은 화면에서 그치지 않고, 무엇을 알리고 어떤 행동으로 연결할지부터 함께 생각합니다. AI를 활용한 제작 방식과 사람의 검토를 결합해 기관·사업에 맞는 웹 경험을 설계합니다.',
@@ -48,7 +62,7 @@ export const services: Service[] = [
     note: '제작 범위, 일정, 비용, 호스팅 및 유지관리 조건은 프로젝트별로 협의합니다.',
   },
   {
-    slug: 'education', name: 'AI·IT 교육', english: 'LEARNING WITH AI', category: '교육', status: '운영 중', number: '04',
+    slug: 'education', name: 'AI·IT 교육', english: 'LEARNING WITH AI', category: '교육', status: '운영 중', number: '05',
     tagline: '기술을 배우고,\n가능성을 발견하다.',
     description: '초·중·고 학생부터 일반인까지. 인공지능을 포함한 IT 교육을 대상과 현장에 맞춰 진행합니다.',
     detail: '기술을 아는 것과 실제로 써보는 것 사이의 거리를 줄입니다. 대상의 경험과 교육 목적을 바탕으로 수업 내용을 협의하고, 직접 시도하고 만들어보는 배움의 경험을 지향합니다.',
@@ -61,7 +75,7 @@ export const services: Service[] = [
     note: '교육 도구의 이용 연령, 계정 필요 여부, 유료 기능과 개인정보 조건은 프로그램별로 사전에 확인합니다.',
   },
   {
-    slug: 'video', name: '복지시설 홍보영상', english: 'STORIES IN MOTION', category: '제작 서비스', status: '운영 중', number: '05',
+    slug: 'video', name: '복지시설 홍보영상', english: 'STORIES IN MOTION', category: '제작 서비스', status: '운영 중', number: '06',
     tagline: '소중한 활동을,\n오래 남는 이야기로.',
     description: '복지시설의 활동과 가치를 영상으로 전합니다. S&J영상편집기를 활용해 홍보용 영상을 제작합니다.',
     detail: '기관이 전하고 싶은 이야기를 먼저 듣고, 사진과 자료를 하나의 흐름으로 엮습니다. S&J영상편집기를 제작 도구로 활용해 복지시설의 홍보와 활동 소개를 위한 영상을 만듭니다.',
@@ -74,7 +88,7 @@ export const services: Service[] = [
     note: '아동·청소년의 얼굴과 개인정보, 초상권 및 음원·사진의 사용 권한을 확인한 자료로 제작합니다. S&J영상편집기 자체의 공개 이용 서비스와는 구분됩니다.',
   },
   {
-    slug: 'automation', name: '복지시설 업무자동화', english: 'AUTOMATION LAB', category: '준비 중', status: '준비 중', number: '06',
+    slug: 'automation', name: '복지시설 업무자동화', english: 'AUTOMATION LAB', category: '준비 중', status: '준비 중', number: '07',
     tagline: '반복 업무는 줄이고,\n사람에게 더 가까이.',
     description: '지역아동센터·아동양육시설·아동복지협회 등의 현장 업무를 돕는 자동화 서비스를 준비하고 있습니다.',
     detail: '복지 현장의 반복 업무를 줄이고 사람을 위한 시간을 늘리는 것을 목표로, 업무자동화 서비스를 개발·제공하기 위한 준비를 진행하고 있습니다. 현재는 정식 출시 전이며 기능과 제공 범위는 확정되지 않았습니다.',

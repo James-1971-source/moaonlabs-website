@@ -29,7 +29,7 @@ export function ExperienceHero() {
     <div className="scene-frame">
       <NeuralScene mode={mode} paused={paused || reduced} onReady={onReady} />
       <div className="scene-vignette" aria-hidden="true" />
-      <div className="scene-coordinate coordinate-top" aria-hidden="true"><span>ML / INTELLIGENCE ENGINE</span><span>01 — 06</span></div>
+      <div className="scene-coordinate coordinate-top" aria-hidden="true"><span>ML / INTELLIGENCE ENGINE</span><span>01 — {String(services.length).padStart(2, '0')}</span></div>
       <div className="scene-coordinate coordinate-bottom" aria-hidden="true"><span>{mode === 'core' ? 'IDEAS IN ORBIT' : 'POSSIBILITIES CONNECTED'}</span><span>THREE.JS / WEBGL</span></div>
       <span className="scene-reticle reticle-tl" aria-hidden="true" /><span className="scene-reticle reticle-br" aria-hidden="true" />
       <nav className="spatial-services" aria-label="3D 서비스 허브">{services.map(s => <Link className={`spatial-link spatial-${s.slug}`} key={s.slug} href={`/services/${s.slug}/`}><span className="spatial-node" /><span className="spatial-number">{s.number}</span><span>{s.name}</span>{s.status === '준비 중' ? <small>준비 중</small> : <ArrowUpRight size={11} />}</Link>)}</nav>
