@@ -21,7 +21,7 @@ export function Header() {
 }
 
 export function ServiceIcon({ slug, size = 22 }: { slug: string; size?: number }) {
-  const icons = { pageonbook: BookOpen, dangjakgong: ShoppingBag, vidson: Clapperboard, websites: Monitor, education: GraduationCap, video: Film, automation: Workflow };
+  const icons = { pageonbook: BookOpen, dangjakgong: ShoppingBag, contion: Clapperboard, websites: Monitor, education: GraduationCap, video: Film, automation: Workflow };
   const Icon = icons[slug as keyof typeof icons] || Layers;
   return <Icon size={size} strokeWidth={1.5} aria-hidden="true" />;
 }
@@ -31,7 +31,7 @@ export function ServiceArt({ slug, large = false }: { slug: string; large?: bool
     <span className="art-grid" />
     {slug === 'pageonbook' && <div className="book-scene"><div className="book-cover"><span>PAGEON<br />EDITION.</span><span className="book-cover-orbit" /><small>Stories worth<br />turning into pages.</small><span className="book-no">01 / 24</span></div><div className="book-page"><span>Good stories<br />stay with us.</span><i /><i /><i /><small>페이지를 넘어, 경험으로.</small></div></div>}
     {slug === 'dangjakgong' && <div className="shop-scene"><div className="shop-bag"><ShoppingBag size={45} strokeWidth={1} /><strong>당작공</strong><small>DANGJAKGONG</small></div><span className="shop-tag">네이버 스마트스토어 <ArrowUpRight size={12} /></span></div>}
-    {slug === 'vidson' && <div className="vidson-scene"><div className="vidson-bar"><i /><i /><i /><span>VIDS ON</span></div><div className="vidson-body"><div className="vidson-canvas"><span className="vidson-title">이야기를,<br /><b>영상으로.</b></span><span className="vidson-play"><Play size={16} fill="currentColor" /></span></div><div className="vidson-side"><i /><i /><i /></div></div><div className="vidson-timeline"><i /><i /><i /><i /><span /></div></div>}
+    {slug === 'contion' && <div className="contion-scene"><div className="contion-bar"><i /><i /><i /><span>CONTION</span></div><div className="contion-body"><div className="contion-canvas"><span className="contion-title">이야기를,<br /><b>영상으로.</b></span><span className="contion-play"><Play size={16} fill="currentColor" /></span></div><div className="contion-side"><i /><i /><i /></div></div><div className="contion-timeline"><i /><i /><i /><i /><span /></div></div>}
     {slug === 'websites' && <div className="browser-scene"><div className="browser-top"><i /><i /><i /><span>your next experience</span></div><div className="browser-content"><div className="browser-nav"><b>hello.</b><span>work&nbsp;&nbsp; about&nbsp;&nbsp; contact</span></div><strong>Make something<br /><em>meaningful.</em></strong><div className="browser-circle" /><span className="browser-pill">Discover more ↗</span></div></div>}
     {slug === 'education' && <div className="learn-scene"><span className="learn-chip chip-ai">AI</span><span className="learn-chip chip-code">&lt;/&gt;</span><span className="learn-chip chip-create"><GraduationCap size={36} /></span><span className="learn-line" /><div className="learn-caption">LEARN. TRY. CREATE.</div></div>}
     {slug === 'video' && <div className="video-scene"><div className="video-screen"><span className="video-label">OUR EVERYDAY STORIES</span><span className="video-landscape" /><span className="video-play"><Play size={20} fill="currentColor" /></span><span className="video-caption">우리의 일상이, 하나의 이야기가 됩니다.</span></div><div className="video-timeline"><i /><i /><i /><i /><span /></div></div>}
