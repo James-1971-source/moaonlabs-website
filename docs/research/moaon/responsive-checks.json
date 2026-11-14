@@ -1,0 +1,96 @@
+{
+  "desktop": [
+    {
+      "slug": "pageonbook",
+      "h1": "좋은 이야기를,한 장 더 펼치게.",
+      "width": {
+        "page": 1425,
+        "viewport": 1440
+      },
+      "external": 1
+    },
+    {
+      "slug": "dangjakgong",
+      "h1": "일상에 닿는,또 하나의 연결.",
+      "width": {
+        "page": 1425,
+        "viewport": 1440
+      },
+      "external": 0
+    },
+    {
+      "slug": "websites",
+      "h1": "첫인상부터,다음 행동까지.",
+      "width": {
+        "page": 1425,
+        "viewport": 1440
+      },
+      "external": 0
+    },
+    {
+      "slug": "education",
+      "h1": "기술을 배우고,가능성을 발견하다.",
+      "width": {
+        "page": 1425,
+        "viewport": 1440
+      },
+      "external": 0
+    },
+    {
+      "slug": "video",
+      "h1": "소중한 활동을,오래 남는 이야기로.",
+      "width": {
+        "page": 1425,
+        "viewport": 1440
+      },
+      "external": 0
+    },
+    {
+      "slug": "automation",
+      "h1": "반복 업무는 줄이고,사람에게 더 가까이.",
+      "width": {
+        "page": 1425,
+        "viewport": 1440
+      },
+      "external": 0
+    }
+  ],
+  "mobile": [
+    {
+      "slug": "pageonbook",
+      "width": 375,
+      "viewport": 390,
+      "heading": "좋은 이야기를,한 장 더 펼치게."
+    },
+    {
+      "slug": "dangjakgong",
+      "width": 375,
+      "viewport": 390,
+      "heading": "일상에 닿는,또 하나의 연결."
+    },
+    {
+      "slug": "websites",
+      "width": 375,
+      "viewport": 390,
+      "heading": "첫인상부터,다음 행동까지."
+    },
+    {
+      "slug": "education",
+      "width": 375,
+      "viewport": 390,
+      "heading": "기술을 배우고,가능성을 발견하다."
+    },
+    {
+      "slug": "video",
+      "width": 375,
+      "viewport": 390,
+      "heading": "소중한 활동을,오래 남는 이야기로."
+    },
+    {
+      "slug": "automation",
+      "width": 375,
+      "viewport": 390,
+      "heading": "반복 업무는 줄이고,사람에게 더 가까이."
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+import { Header, Hero, ServiceGrid, Approach, About, ContactBanner, Footer } from '@/components/moaon';
+export default function Home() { return <><Header/><main id="main"><Hero/><div className="capability-strip" aria-label="모아온랩스 사업 영역"><div className="container"><span>AI × REAL LIFE</span><span>디지털 콘텐츠</span><i/><span>웹사이트</span><i/><span>IT 교육</span><i/><span>영상 제작</span><i/><span>업무자동화</span></div></div><ServiceGrid/><Approach/><About/><ContactBanner/></main><Footer/></>; }

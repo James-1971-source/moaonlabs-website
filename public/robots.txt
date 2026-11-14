@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://moaonlabs.com/sitemap.xml

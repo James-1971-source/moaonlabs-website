@@ -1,0 +1,11 @@
+import { ESLint } from 'eslint';
+console.log('ESLint loaded. Checking src.');
+const eslint = new ESLint();
+const results = await eslint.lintFiles(['src']);
+const formatter = await eslint.loadFormatter('stylish');
+const output = formatter.format(results);
+if (output) console.log(output);
+const errors = results.reduce((n, r) => n + r.errorCount, 0);
+const warnings = results.reduce((n, r) => n + r.warningCount, 0);
+console.log(JSON.stringify({ files: results.length, errors, warnings }));
+process.exit(errors ? 1 : 0);
