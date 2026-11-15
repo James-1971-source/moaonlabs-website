@@ -44,9 +44,10 @@ export const services: Service[] = [
       { title: '설치 없이 바로', text: 'Chrome·Edge 브라우저에서 주소만 열면 시작합니다. 완성한 영상은 Full HD MP4로 저장합니다.' },
       { title: '내 PC 안에서 처리', text: '사진·영상·음성을 서버로 올리지 않습니다. 작업은 이 브라우저에 자동 저장되고, 파일로 백업할 수 있습니다.' },
       { title: '쇼츠부터 강의 영상까지', text: '자막 디자인, 쇼츠 레이아웃, 인포그래픽, 장면 카메라, 3D 소재와 검수 도구를 갖췄습니다.' },
+      { title: '자연스러운 AI 나레이션', text: '해설 원고를 사람 같은 목소리(10종)로 읽어 나레이션을 만듭니다. 원고는 PC 밖으로 보내지 않습니다.' },
     ], steps: ['콘티온 열기', '템플릿·사진으로 장면 만들기', 'MP4로 저장·공유'], tags: ['영상 편집', '쇼츠', '무료 공개'],
     external: 'https://contion.moaonlabs.com/', externalLabel: '콘티온 시작하기',
-    note: 'PC의 Chrome 또는 Edge 최신 버전에서 사용하세요. 자동 저장은 같은 PC·같은 브라우저에만 남으니 중요한 작업은 파일 백업을 함께 해 두세요. 일부 기능(Windows 음성·AI 원고 연결)은 PC 설치 버전에서 제공합니다.',
+    note: 'PC의 Chrome 또는 Edge 최신 버전에서 사용하세요. 자동 저장은 같은 PC·같은 브라우저에만 남으니 중요한 작업은 파일 백업을 함께 해 두세요. Windows 기본 음성·AI 원고 연결은 설치 파일(PC 버전)에서 제공합니다.',
   },
   {
     slug: 'websites', name: '홈페이지 제작', english: 'WEB EXPERIENCE', category: '제작 서비스', status: '운영 중', number: '04',
