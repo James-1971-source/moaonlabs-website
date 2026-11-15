@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState, useSyncExternalStore } from 'react';
-import { Download, ArrowDown, Clapperboard, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronDown, Copy, Film, GraduationCap, Layers, Mail, Menu, Monitor, Phone, Play, ShoppingBag, Workflow, X } from 'lucide-react';
+import { ArrowDown, Clapperboard, ArrowRight, ArrowUpRight, BookOpen, Check, ChevronDown, Copy, Film, GraduationCap, Layers, Mail, Menu, Monitor, Phone, Play, ShoppingBag, Workflow, X } from 'lucide-react';
 import { company, services, type Service } from '@/lib/services';
 
 export function Brand({ compact = false }: { compact?: boolean }) {
@@ -70,15 +70,14 @@ export function Footer() {
 
 
 const CONTION_WEB = 'https://contion.moaonlabs.com/';
-const CONTION_ZIP = 'https://github.com/James-1971-source/contion-web/releases/latest/download/ContiOn-PC.zip';
 function ContiOnActions() {
-  return <div className="contion-actions"><a className="button button-primary" href={CONTION_WEB} target="_blank" rel="noopener noreferrer">웹에서 바로 쓰기 <ArrowUpRight size={17} /><span className="sr-only"> (새 탭)</span></a><a className="button button-outline" href="#install">PC에 설치하기 <ArrowDown size={16} /></a><a className="button button-quiet" href={CONTION_ZIP}>설치 파일 다운로드 (ZIP · 약 50MB) <Download size={15} /></a></div>;
+  return <div className="contion-actions"><Link href="/contact/?service=contion" className="button button-primary">이용 신청하기 <ArrowUpRight size={17} /></Link><a className="button button-outline" href={CONTION_WEB} target="_blank" rel="noopener noreferrer">이용 코드로 시작 <ArrowUpRight size={16} /><span className="sr-only"> (새 탭)</span></a><a className="button button-quiet" href="#install">이용 방법 보기 <ArrowDown size={15} /></a></div>;
 }
 function ContiOnInstall() {
-  return <section id="install" className="section contion-install"><div className="container"><p className="eyebrow muted">GET STARTED</p><h2>세 가지 방법으로 시작하세요</h2><div className="contion-ways">
-    <article><span className="way-no">01</span><h3>웹에서 바로 쓰기</h3><p>설치 없이 <b>Chrome·Edge</b>에서 주소만 열면 됩니다. 새 기능은 자동으로 반영됩니다.</p><a className="text-link" href={CONTION_WEB} target="_blank" rel="noopener noreferrer">contion.moaonlabs.com <ArrowUpRight size={14} /></a></article>
-    <article className="way-main"><span className="way-no">02 · 추천</span><h3>PC에 앱으로 설치</h3><ol><li>Chrome·Edge에서 <b>contion.moaonlabs.com</b>을 엽니다.</li><li>편집기 위쪽 <b>⬇ 내 PC에 설치</b>를 누르고 <b>설치</b>를 누릅니다.</li><li>바탕화면·시작 메뉴의 <b>콘티온</b> 아이콘으로 엽니다. 인터넷이 끊겨도 실행되고, 새 버전이 나오면 “지금 적용” 안내가 뜹니다.</li></ol></article>
-    <article><span className="way-no">03</span><h3>설치 파일 (인터넷 없는 교육장)</h3><ol><li><a href={CONTION_ZIP}>ContiOn-PC.zip</a>을 받아 USB 등으로 옮기고 압축을 풉니다.</li><li><b>PC에 설치하기</b>를 두 번 누릅니다(관리자 권한 필요 없음).</li><li>바탕화면의 <b>콘티온</b> 아이콘으로 실행합니다. Windows 기본 음성도 쓸 수 있습니다.</li></ol></article>
+  return <section id="install" className="section contion-install"><div className="container"><p className="eyebrow muted">PILOT ACCESS</p><h2>지금은 승인된 분만 쓰는 시범 운영 기간입니다</h2><div className="contion-ways">
+    <article><span className="way-no">01</span><h3>이용 신청</h3><p>기관명과 사용 목적을 적어 <Link href="/contact/?service=contion">문의하기</Link>로 신청해 주세요. 검토 후 <b>이용 코드</b>를 보내 드립니다.</p></article>
+    <article className="way-main"><span className="way-no">02</span><h3>웹에서 시작 · 앱으로 설치</h3><ol><li>Chrome·Edge에서 <b>contion.moaonlabs.com</b>을 열고 받은 <b>이용 코드</b>를 넣습니다(처음 한 번).</li><li>편집기 위쪽 <b>⬇ 내 PC에 설치</b>를 누르면 바탕화면 아이콘이 생깁니다.</li><li>인터넷이 끊겨도 실행되고, 새 버전이 나오면 “지금 적용” 안내가 뜹니다.</li></ol></article>
+    <article><span className="way-no">03</span><h3>인터넷 없는 교육장</h3><p>인터넷이 없는 교육장에는 <b>PC 설치판</b>을 승인된 기관에 따로 전달해 드립니다. 신청할 때 함께 알려 주세요.</p></article>
   </div><div className="contion-notes"><p><b>권장 환경</b> Windows PC · Chrome 또는 Edge 최신 버전 (휴대폰·태블릿은 권장하지 않습니다)</p><p><b>작업 보관</b> 작업은 이 PC의 브라우저에 자동 저장됩니다. 다른 PC로 옮기거나 오래 보관할 작업은 편집기의 <b>백업</b> 버튼으로 파일을 저장하세요.</p><p><b>처음 한 번 내려받는 것</b> 자동 자막(약 135~290MB)·AI 음성(약 380MB)은 처음 쓸 때만 인터넷으로 모델을 받습니다. 사진·영상·원고는 PC 밖으로 보내지 않습니다.</p><p><b>AI 음성</b> Supertone Supertonic 3(OpenRAIL-M)을 씁니다. 실제 사람인 척하거나 남을 사칭하는 용도로는 쓸 수 없고, 영상에는 AI 음성임을 밝혀 주세요.</p></div></div></section>;
 }
 
