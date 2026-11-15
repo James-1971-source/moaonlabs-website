@@ -1,6 +1,6 @@
 export type Service = {
   slug: string; name: string; english: string; category: '디지털 서비스' | '제작 서비스' | '교육' | '준비 중';
-  status: '운영 중' | '준비 중'; number: string; tagline: string; description: string;
+  status: '운영 중' | '준비 중' | '시범 운영'; number: string; tagline: string; description: string;
   detail: string; audience: string[]; features: { title: string; text: string }[];
   steps: string[]; tags: string[]; external?: string; externalLabel?: string; note?: string;
 };
