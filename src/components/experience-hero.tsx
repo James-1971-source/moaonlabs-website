@@ -37,7 +37,8 @@ export function ExperienceHero() {
     <div className="container experience-content"><div className="experience-copy">
       <div className="experience-eyebrow"><span className="eyebrow-line" /><span>모아온랩스 <i /> INTELLIGENT DIGITAL STUDIO</span></div>
       <h1 id="experience-title">생각의 경계를 넘어,<br /><span>가능성을 <em>켜다.</em></span></h1>
-      <p className="experience-description">AI라는 기술에, 사람을 향한 상상력을 더합니다.<br />아이디어에서 서비스로. 콘텐츠에서 일상의 변화로.<br /><strong>다음 가능성을 만드는 곳, 모아온랩스.</strong></p>
+      <p className="experience-description"><strong>인공지능으로, 현장과 일상에 쓰이는 서비스를 만듭니다.</strong><br />직접 만든 서비스부터 맡겨 주시는 제작과 교육까지.</p>
+      <ul className="hero-offer" aria-label="모아온랩스가 하는 일">{[['콘티온', '영상 편집기', '/services/contion/'], ['페이지온북', '온라인 플립북', '/services/pageonbook/'], ['홈페이지 제작', '기관·브랜드', '/services/websites/'], ['AI·IT 교육', '학생·일반인', '/services/education/'], ['복지시설 홍보영상', '영상 제작', '/services/video/']].map(([n, d, h]) => <li key={h}><Link href={h}><b>{n}</b><span>{d}</span></Link></li>)}</ul>
       <div className="experience-actions"><a href="#services" className="button button-primary">우리의 서비스 <ArrowRight size={17} /></a><Link href="/contact/" className="experience-secondary">함께 만들기 <ArrowUpRight size={16} /></Link></div>
       <div className="experience-footnote"><span className="footnote-rule" /><span>AI-POWERED.<br /><b>HUMAN-CENTERED.</b></span></div>
     </div></div>

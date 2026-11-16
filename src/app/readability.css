@@ -112,3 +112,19 @@ body{font-size:17px}
   .footer-top{grid-template-columns:1fr!important;gap:22px!important}
   .footer-contact{align-items:flex-start!important;text-align:left!important;justify-self:start!important}
 }
+
+/* ---- 첫 화면: 하는 일 한눈에 ---- */
+.hero-offer{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;max-width:600px}
+.hero-offer a{display:inline-flex;align-items:baseline;gap:7px;padding:9px 14px;border:1px solid #a4b7db2e;border-radius:999px;background:#0d131dcc;font-size:15px;color:#e9eef4;transition:border-color .2s,background .2s;min-height:42px;align-items:center}
+.hero-offer a span{font-size:13px;color:#9fadbf}
+.hero-offer a:hover{border-color:#a4ffe399;background:#122019}
+.experience-actions{margin-top:28px!important}
+/* ---- 서비스 묶음 ---- */
+.service-group+.service-group{margin-top:64px}
+.service-group-head{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin:8px 0 24px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.service-group-head h3{margin:0;font-size:24px;font-weight:600;color:#f3f5fa}
+.service-group-head p{margin:0;font-size:16px;color:#a9b4c3}
+@media(max-width:600px){.hero-offer{gap:7px}.hero-offer a{font-size:14px;padding:8px 12px}.hero-offer a span{display:none}.service-group-head h3{font-size:21px}.service-group-head p{font-size:15px}.service-group+.service-group{margin-top:48px}}
+
+/* 휴대폰: 첫 화면 소개 줄이 늘어난 만큼 3D 영역을 아래로 */
+@media(max-width:600px){.experience-hero{height:1050px!important}.experience-hero .scene-frame{top:451px!important}.experience-hero .spatial-services{display:none!important}.experience-hero .experience-bottom{top:964px!important}}
