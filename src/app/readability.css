@@ -1,0 +1,114 @@
+/* ==========================================================================
+   가독성 레이어 (2026-11-16)
+   - 목적: 어르신·저시력 방문자도 편하게 읽도록 글자 크기·굵기·밝기를 올린다.
+   - 기준: 본문 16~18px, 메뉴·버튼 15~16px, 작은 표시 글자 최소 12px.
+   - 카드 안 일러스트(책·쇼핑백·브라우저 등 그림 속 글자)는 그림이므로 건드리지 않는다.
+   - 기존 규칙이 화면 폭마다 여러 번 덮어쓰고 있어, 이 층은 !important로 마지막에 확정한다.
+   ========================================================================== */
+:root{
+  --rd-body:#c4ccd8;      /* 본문 회색: 기존 #8999af·#919aa8보다 밝게 */
+  --rd-soft:#a9b4c3;      /* 보조 글자 */
+  --rd-label:#9fb0c3;     /* 작은 표시 글자 */
+  --muted:#b0b9c7;
+}
+body{font-size:17px}
+
+/* ---- 1. 머리글 메뉴 ---- */
+.main-nav{font-size:16px!important;gap:36px!important;color:#dce2ea!important}
+.main-nav a,.main-nav button{font-size:16px!important;font-weight:500!important;color:#dce2ea}
+.main-nav a:hover,.main-nav button:hover{color:#ffffff}
+.header-contact{font-size:15px!important;font-weight:600!important}
+
+/* ---- 2. 버튼·링크 ---- */
+.button{font-size:15px!important;font-weight:600!important;min-height:50px}
+.experience-secondary,.text-link,.related-heading .text-link,.about-copy .text-link{font-size:15px!important;font-weight:600!important;color:#dfe9e6!important}
+.contact-circle span{font-size:15px!important;font-weight:600!important}
+
+/* ---- 3. 작은 표시 글자(영문 소제목·번호·상태) : 최소 12~13px ---- */
+.card-kicker span{font-size:12.5px!important;font-weight:500!important;letter-spacing:.14em!important;color:#8fa3ba!important}
+.eyebrow,.eyebrow.muted,p.eyebrow,.mono-label,.detail-eyebrow span,.capability-strip .container>span,
+.experience-eyebrow span,.form-heading span,.legal-page .eyebrow{font-size:13px!important;font-weight:600!important;letter-spacing:.12em!important;color:var(--rd-label)!important}
+.contact-banner-inner .eyebrow{color:#9ccfc2!important}
+.status-badge,.inline-status{font-size:12.5px!important;font-weight:600!important}
+.way-no,.detail-steps>div>span,.feature-list article>span{font-size:13px!important;font-weight:700!important}
+.filter-bar .filter{font-size:15px!important;font-weight:500!important;color:#aab6c6!important;min-height:48px}
+.filter-bar .filter.active{color:#b1ffe8!important}
+.filter-bar .filter span{font-size:13px!important}
+.breadcrumbs,.breadcrumbs a,.breadcrumbs span{font-size:14px!important;color:#a7b3c2!important}
+.detail-video .video-label{font-size:12.5px!important;top:14px!important;bottom:auto!important}
+.illustration-label{font-size:11px!important;color:#b6b9c0b0!important}
+
+/* ---- 4. 본문·설명문 ---- */
+.experience-description{font-size:18px!important;line-height:1.8!important;color:var(--rd-body)!important}
+.experience-description strong{color:#f1f4f8!important;font-weight:600!important}
+.section-description,.services-note{font-size:16px!important;line-height:1.8!important;color:var(--rd-soft)!important}
+.service-card .card-body p{font-size:16px!important;line-height:1.75!important;color:#bcc5d2!important}
+.service-card .card-bottom span{font-size:14px!important;color:var(--rd-soft)!important}
+.service-card .card-bottom span:last-child{color:#e3ebe8!important;font-weight:600!important}
+.approach-card p,.about-copy p,.contact-banner-inner p:not(.eyebrow),.contact-info>p:not(.eyebrow),
+.detail-final-cta p,.feature-list article p,.detail-steps p,.detail-note,.contion-ways p,.contion-ways li{font-size:17px!important;line-height:1.8!important;color:var(--rd-body)!important}
+.detail-intro{font-size:18px!important;line-height:1.8!important;color:var(--rd-body)!important}
+.detail-name{font-size:18px!important}
+.detail-lead{color:#d9e0e8!important}
+.detail-tags span{font-size:14px!important;color:var(--rd-soft)!important}
+.audience-box h3{font-size:18px!important}
+.audience-box li{font-size:16px!important;color:#c3d3c9!important}
+.contion-notes p{font-size:15px!important;line-height:1.85!important;color:var(--rd-soft)!important}
+.contion-notes b,.detail-note strong{font-size:inherit!important}
+.legal-page p,.legal-page li,.legal-intro{font-size:16px!important;line-height:1.85!important;color:var(--rd-body)!important}
+
+/* ---- 5. 문의 페이지 ---- */
+.contact-form-panel label{font-size:16px!important;color:#e0e7ea!important}
+.contact-form-panel label span{font-size:14px!important;color:var(--rd-soft)!important}
+.contact-form-panel input,.contact-form-panel textarea,.contact-form-panel select{font-size:16px!important}
+.mail-explanation,.mail-explanation strong,.contact-safety p,.form-note{font-size:14px!important;line-height:1.75!important;color:var(--rd-soft)!important}
+.mail-explanation strong{color:#dbe5e3!important}
+.copy-email,.download-brief{font-size:14px!important;color:#bfd3cf!important}
+.direct-contact a span{font-size:16px!important}
+.direct-contact small,a>span>small{font-size:12px!important;letter-spacing:.1em;color:var(--rd-label)!important}
+
+/* ---- 6. 첫 화면 3D 주변 ---- */
+.spatial-link span{font-size:13px!important;color:#d4e6e7!important}
+.spatial-link small{font-size:11.5px!important}
+.spatial-number{font-size:11.5px!important;color:#8fb3bd!important}
+.scene-mode-group button{font-size:14px!important}
+.experience-footnote span{font-size:11.5px!important;color:#7f90aa!important}
+.experience-footnote span b{color:#b4c1d4!important}
+.experience-scroll span{font-size:12px!important;color:#a3b0c4!important}
+/* 방문자에게 의미 없는 기술 장식 문구는 숨김 */
+.scene-coordinate,.engine-caption{display:none!important}
+
+/* ---- 7. 바닥글 ---- */
+.footer-top p{font-size:15px!important;color:var(--rd-soft)!important}
+.footer-top nav a{font-size:16px!important;color:#d0d8e1!important}
+.footer-contact a{font-size:16px!important;color:#d0d8e1!important}
+.footer-legal,.footer-legal span,.footer-legal a,.footer-legal strong,.footer-bottom,.footer-bottom span,.footer-bottom a,footer small{font-size:13.5px!important;color:#9eabba!important}
+
+/* ---- 8. 화면 폭별 조정 ---- */
+@media(max-width:1100px){
+  .main-nav{gap:26px!important}
+  .main-nav a,.main-nav button{font-size:15px!important}
+  .experience-description{font-size:17px!important}
+}
+@media(min-width:801px) and (max-width:1180px){
+  /* 중간 폭에서 3D 주변 서비스 표시가 큰 제목과 겹치므로 숨김(아래 서비스 목록에 같은 링크가 있음) */
+  .spatial-services{display:none!important}
+}
+@media(max-width:800px){
+  .main-nav a,.main-nav button{font-size:16px!important}
+  .header-contact{font-size:14px!important}
+  /* 손가락으로 누르기 쉬운 크기(44px 이상) */
+  .filter-bar .filter,.footer-top nav a,.footer-contact a,.text-link,.copy-email,.download-brief,.breadcrumbs a,.experience-secondary{min-height:44px;display:inline-flex!important;align-items:center}
+}
+@media(max-width:600px){
+  body{font-size:16px}
+  .experience-description{font-size:16.5px!important;line-height:1.75!important}
+  .service-card .card-body p,.approach-card p,.about-copy p,.contact-banner-inner p:not(.eyebrow),.contact-info>p:not(.eyebrow),
+  .detail-final-cta p,.feature-list article p,.detail-steps p,.detail-note,.contion-ways p,.contion-ways li,.detail-intro,.legal-page p,.legal-page li{font-size:16px!important}
+  .eyebrow,.eyebrow.muted,p.eyebrow,.mono-label,.card-kicker span,.detail-eyebrow span,.capability-strip .container>span,.experience-eyebrow span{font-size:12px!important}
+  .filter-bar .filter{font-size:14px!important}
+  .button{font-size:15px!important}
+  .header-contact{font-size:13px!important}
+  .footer-top{grid-template-columns:1fr!important;gap:22px!important}
+  .footer-contact{align-items:flex-start!important;text-align:left!important;justify-self:start!important}
+}
