@@ -75,7 +75,7 @@ export function Footer() {
 
 const CONTION_WEB = 'https://contion.moaonlabs.com/';
 function ContiOnActions() {
-  return <div className="contion-actions"><Link href="/contact/?service=contion" className="button button-primary">이용 신청하기 <ArrowUpRight size={17} /></Link><a className="button button-outline" href={CONTION_WEB} target="_blank" rel="noopener noreferrer">이용 코드로 시작 <ArrowUpRight size={16} /><span className="sr-only"> (새 탭)</span></a><a className="button button-quiet" href="#install">이용 방법 보기 <ArrowDown size={15} /></a></div>;
+  return <div className="contion-actions"><Link href="/contact/?service=contion" className="button button-primary">이용 신청하기 <ArrowUpRight size={17} /></Link><a className="button button-outline" href={CONTION_WEB} target="_blank" rel="noopener noreferrer">이용 코드로 시작 <ArrowUpRight size={16} /><span className="sr-only"> (새 탭)</span></a><a className="button button-outline" href={CONTION_WEB + 'library/'} target="_blank" rel="noopener noreferrer">자료실 (이용 코드) <Film size={16} /><span className="sr-only"> (새 탭)</span></a><a className="button button-quiet" href="#install">이용 방법 보기 <ArrowDown size={15} /></a></div>;
 }
 function ContiOnInstall() {
   return <section id="install" className="section contion-install"><div className="container"><p className="eyebrow muted">PILOT ACCESS</p><h2>지금은 승인된 분만 쓰는 시범 운영 기간입니다</h2><div className="contion-ways">
