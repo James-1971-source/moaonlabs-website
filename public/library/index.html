@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="ko" class="ct-gating">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>콘티온 자료실 · 모아온랩스</title>
+<link rel="icon" href="https://contion.moaonlabs.com/icons/icon-192.png">
+<style>
+:root{--bg:#0b1018;--card:#111a24;--line:#24323f;--text:#dbe5ec;--sub:#9fb0bf;--mute:#73859a;--accent:#5fd3b3;--accent2:#7be3c6}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:"Pretendard","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif}
+a{color:var(--accent2)}
+html.ct-gating #app{display:none}
+/* 이용 코드 확인 */
+#ctGate{position:fixed;inset:0;z-index:50;display:grid;place-items:center;background:radial-gradient(circle at 30% 20%,#14303a 0,#0b1018 55%)}
+.ct-card{width:min(440px,90vw);padding:38px 34px 28px;border-radius:18px;background:var(--card);border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.45);text-align:center}
+.ct-logo{width:52px;height:52px;margin:0 auto 14px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,#1f9d84,#7be3c6);color:#062019;font-size:20px}
+.ct-card h1{font-size:22px;margin:0 0 10px;color:#fff}
+.ct-sub{font-size:13.5px;line-height:1.75;color:var(--sub);margin:0 0 20px}.ct-sub b{color:#e8f2f6}
+.ct-card form{display:flex;gap:8px}
+.ct-card input{flex:1;min-width:0;padding:12px 14px;border-radius:10px;border:1px solid #2e3f4e;background:#0b121a;color:#fff;font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+.ct-card input:focus{outline:2px solid var(--accent);border-color:transparent}
+.ct-card button{padding:0 18px;border:0;border-radius:10px;background:var(--accent);color:#062019;font-weight:700;font-size:14px;cursor:pointer}
+.ct-msg{min-height:20px;margin:12px 0 6px;font-size:12.5px;color:#ffb4a8}
+.ct-foot{font-size:11.5px;color:var(--mute);margin:8px 0 0;line-height:1.7}
+/* 자료실 */
+header{position:sticky;top:0;z-index:5;display:flex;align-items:center;gap:14px;padding:14px clamp(16px,4vw,40px);background:rgba(11,16,24,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;color:#fff;text-decoration:none}
+.brand i{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,#1f9d84,#7be3c6);color:#062019;font-style:normal;font-size:13px}
+.brand small{font-weight:500;color:var(--sub);font-size:13px}
+header nav{margin-left:auto;display:flex;gap:8px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:9px;border:1px solid var(--line);background:#121c27;color:var(--text);font-size:13px;text-decoration:none;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#062019;font-weight:700}
+main{max-width:1180px;margin:0 auto;padding:28px clamp(16px,4vw,40px) 60px}
+.hero{padding:26px 28px;border-radius:18px;background:linear-gradient(120deg,#12303a,#111a24 60%);border:1px solid var(--line);margin-bottom:22px}
+.hero h1{margin:0 0 8px;font-size:clamp(22px,3vw,30px);color:#fff}
+.hero p{margin:0;color:var(--sub);line-height:1.7;font-size:14.5px}
+.hero .who{margin-top:12px;font-size:12.5px;color:var(--mute)}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.tabs button{padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:#101923;color:var(--sub);font-size:13.5px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:#062019;font-weight:700}
+section h2{font-size:18px;color:#fff;margin:26px 0 4px}
+section .desc{color:var(--mute);font-size:13px;margin:0 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.item{display:flex;flex-direction:column;text-align:left;padding:0;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--card);color:inherit;cursor:pointer;transition:transform .15s,border-color .15s}
+.item:hover,.item:focus-visible{transform:translateY(-3px);border-color:var(--accent);outline:none}
+.thumb{position:relative;aspect-ratio:16/9;background:#0a0f16 center/cover no-repeat}
+.thumb.vertical{background-size:contain}
+.thumb .dur{position:absolute;right:8px;bottom:8px;padding:2px 7px;border-radius:6px;background:rgba(0,0,0,.75);color:#fff;font-size:12px}
+.thumb .play{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .15s;background:rgba(0,0,0,.25)}
+.thumb .play b{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:#062019;font-size:18px}
+.item:hover .play{opacity:1}
+.meta{padding:12px 14px 14px}
+.meta h3{margin:0 0 6px;font-size:15px;line-height:1.45;color:#fff}
+.meta p{margin:0;font-size:12.5px;line-height:1.6;color:var(--sub)}
+.tag{display:inline-block;margin-top:8px;padding:2px 8px;border-radius:6px;background:#17303a;color:var(--accent2);font-size:11.5px}
+.tag.wait{background:#2a2433;color:#c9b6e8}
+/* 재생 창 */
+dialog{width:min(1100px,94vw);padding:0;border:1px solid var(--line);border-radius:16px;background:#0d141d;color:var(--text)}
+dialog::backdrop{background:rgba(3,6,10,.8)}
+.pv-head{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+.pv-head h3{margin:0;font-size:15px;color:#fff;flex:1}
+.pv-body{background:#000;aspect-ratio:16/9;display:grid;place-items:center}
+.pv-body.vertical{aspect-ratio:auto;height:min(76vh,860px)}
+.pv-body.vertical video{width:auto;max-width:100%;height:min(76vh,860px);aspect-ratio:9/16}
+dialog{max-height:94vh;overflow:auto}
+.pv-body video,.pv-body iframe{width:100%;height:100%;border:0;display:block;background:#000}
+.pv-wait{color:var(--sub);font-size:14px;padding:30px;text-align:center;line-height:1.8}
+.pv-foot{padding:12px 16px;font-size:13px;color:var(--sub);line-height:1.7}
+footer{color:var(--mute);font-size:12px;text-align:center;padding:30px 16px;border-top:1px solid var(--line)}
+@media (max-width:600px){header nav .btn span{display:none}.hero{padding:20px}}
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <a class="brand" href="https://moaonlabs.com/services/contion/"><i>▶</i>콘티온 <small>자료실</small></a>
+    <nav>
+      <a class="btn primary" href="https://contion.moaonlabs.com/" target="_blank" rel="noopener">▶ <span>편집기 열기</span></a>
+      <a class="btn" href="https://moaonlabs.com/services/contion/" target="_blank" rel="noopener"><span>모아온랩스</span> ↗</a>
+    </nav>
+  </header>
+  <main>
+    <div class="hero">
+      <h1>콘티온 자료실</h1>
+      <p>승인된 기관과 선생님을 위한 영상 자료실입니다. AI 도구 수업 영상, 콘티온 사용법, 콘티온으로 만든 시연·샘플 영상을 모아 두었습니다.<br>영상은 이 화면에서만 보실 수 있으며, 외부 공유나 재배포는 하지 말아 주세요.</p>
+      <div class="who" id="who"></div>
+    </div>
+    <div class="tabs" id="tabs" role="toolbar" aria-label="분류"></div>
+    <div id="list"></div>
+  </main>
+  <footer>사단법인 S&amp;J희망나눔 · 모아온랩스 &nbsp;|&nbsp; 문의 contact@moaonlabs.com</footer>
+</div>
+
+<dialog id="pv">
+  <div class="pv-head"><h3 id="pvTitle"></h3><button class="btn" id="pvClose" aria-label="닫기">닫기 ✕</button></div>
+  <div class="pv-body" id="pvBody"></div>
+  <div class="pv-foot" id="pvFoot"></div>
+</dialog>
+
+<script>
+(()=>{'use strict';
+const root=document.documentElement;
+const KEY='contion-access';                       // 편집기와 같은 저장값(한 번 넣으면 편집기·자료실 함께 열림)
+const APPLY='https://moaonlabs.com/contact/?service=contion';
+const norm=s=>String(s||'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+async function hash(code){const d=await crypto.subtle.digest('SHA-256',new TextEncoder().encode('contion|'+norm(code)));return [...new Uint8Array(d)].map(b=>b.toString(16).padStart(2,'0')).join('')}
+async function list(){const ctl=new AbortController();const t=setTimeout(()=>ctl.abort(),6000);try{const r=await fetch('https://contion.moaonlabs.com/access.json?t='+Date.now(),{cache:'no-store',signal:ctl.signal});if(!r.ok)return null;const j=await r.json();return Array.isArray(j.codes)?j.codes:null}catch{return null}finally{clearTimeout(t)}}
+const saved=()=>{try{return JSON.parse(localStorage.getItem(KEY)||'null')}catch{return null}};
+
+function gate(msg){
+  root.classList.add('ct-gating');
+  let g=document.getElementById('ctGate');
+  if(!g){g=document.createElement('div');g.id='ctGate';document.body.append(g)}
+  g.innerHTML='<div class="ct-card"><div class="ct-logo">▶</div><h1>콘티온 자료실</h1><p class="ct-sub">승인된 분만 볼 수 있는 영상 자료실입니다.<br>안내받은 <b>이용 코드</b>를 넣어 주세요.<br><span style="font-size:12.5px">한 번 넣으면 이 브라우저에서는 다음부터 바로 열립니다.</span></p><form id="ctForm"><input id="ctCode" autocomplete="off" spellcheck="false" placeholder="예: CT-AB12-CD34" aria-label="이용 코드"><button type="submit">입장하기</button></form><p class="ct-msg" role="alert"></p><p class="ct-foot">이용을 원하시면 <a href="'+APPLY+'" target="_blank" rel="noopener">모아온랩스에 신청</a>해 주세요. · 문의 contact@moaonlabs.com</p></div>';
+  g.querySelector('.ct-msg').textContent=msg||'';
+  const inp=g.querySelector('#ctCode');setTimeout(()=>inp.focus(),50);
+  g.querySelector('#ctForm').onsubmit=async ev=>{ev.preventDefault();const m=g.querySelector('.ct-msg');const code=inp.value;
+    if(norm(code).length<6){m.textContent='코드를 정확히 넣어 주세요.';return}
+    m.textContent='확인 중…';const codes=await list();
+    if(!codes){m.textContent='인터넷 연결을 확인한 뒤 다시 시도해 주세요.';return}
+    const h=await hash(code);const e=codes.find(c=>c.h===h&&!c.revoked);
+    if(!e){m.textContent='맞지 않거나 사용이 끝난 코드입니다.';return}
+    try{localStorage.setItem(KEY,JSON.stringify({h,at:Date.now()}))}catch{}
+    open()}
+}
+async function open(){root.classList.remove('ct-gating');document.getElementById('ctGate')?.remove();await render()}
+
+/* ── 자료 목록 ── */
+let CAT=null,cur='all';
+const fmt=s=>{s=Math.round(s||0);const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return (h?h+':'+String(m).padStart(2,'0'):m)+':'+String(x).padStart(2,'0')};
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const ready=v=>!!(v.youtube||v.src);
+async function render(){
+  if(!CAT){try{const r=await fetch('catalog.json?t='+Date.now(),{cache:'no-store'});CAT=await r.json()}catch{document.getElementById('list').innerHTML='<p class="desc">자료 목록을 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.</p>';return}}
+  const tabs=document.getElementById('tabs');
+  tabs.innerHTML=[{id:'all',title:'전체'},...CAT.sections].map(s=>'<button data-id="'+esc(s.id)+'" aria-pressed="'+(s.id===cur)+'">'+esc(s.title)+'</button>').join('');
+  tabs.onclick=e=>{const b=e.target.closest('button');if(!b)return;cur=b.dataset.id;render()};
+  const secs=CAT.sections.filter(s=>cur==='all'||s.id===cur);
+  document.getElementById('list').innerHTML=secs.map(s=>{
+    const items=CAT.videos.filter(v=>v.section===s.id);
+    return '<section><h2>'+esc(s.title)+' <small style="color:var(--mute);font-weight:500;font-size:13px">'+items.length+'편</small></h2><p class="desc">'+esc(s.desc||'')+'</p><div class="grid">'+items.map(v=>
+      '<button class="item" data-id="'+esc(v.id)+'"><div class="thumb'+(v.vertical?' vertical':'')+'" style="background-image:url(\'thumbs/'+esc(v.id)+'.jpg\')"><span class="dur">'+fmt(v.duration)+'</span><span class="play"><b>▶</b></span></div><div class="meta"><h3>'+esc(v.title)+'</h3><p>'+esc(v.desc)+'</p>'+(ready(v)?(v.level?'<span class="tag">'+esc(v.level)+'</span>':''):'<span class="tag wait">업로드 준비 중</span>')+'</div></button>'
+    ).join('')+'</div></section>'}).join('');
+  document.querySelectorAll('.item').forEach(b=>b.onclick=()=>play(CAT.videos.find(v=>v.id===b.dataset.id)));
+}
+const pv=document.getElementById('pv'),body=document.getElementById('pvBody');
+function play(v){
+  document.getElementById('pvTitle').textContent=v.title;
+  document.getElementById('pvFoot').textContent=v.desc+(v.note?' · '+v.note:'');
+  body.className='pv-body'+(v.vertical?' vertical':'');
+  if(v.youtube){body.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+encodeURIComponent(v.youtube)+'?rel=0&modestbranding=1&autoplay=1" title="'+esc(v.title)+'" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>'}
+  else if(v.src){body.innerHTML='<video controls autoplay playsinline controlslist="nodownload" preload="metadata" poster="thumbs/'+esc(v.id)+'.jpg"></video>';const vd=body.querySelector('video');vd.src=v.src;vd.oncontextmenu=e=>e.preventDefault()}
+  else{body.innerHTML='<div class="pv-wait">이 영상은 지금 올리는 중입니다.<br>조금 뒤 다시 확인해 주세요.</div>'}
+  pv.showModal();
+}
+function stop(){body.innerHTML='';pv.close()}
+document.getElementById('pvClose').onclick=stop;
+pv.addEventListener('cancel',e=>{e.preventDefault();stop()});
+pv.addEventListener('click',e=>{if(e.target===pv)stop()});
+
+/* ── 시작: 저장된 코드가 아직 유효한지 확인 ── */
+(async()=>{const s=saved();
+  if(s&&s.h){const codes=await list();
+    if(!codes){gate('인터넷 연결을 확인한 뒤 다시 열어 주세요.');return}
+    const e=codes.find(c=>c.h===s.h);if(e&&!e.revoked){open();return}
+    try{localStorage.removeItem(KEY)}catch{}gate('이용 기간이 끝났거나 회수된 코드입니다. 새 코드를 넣어 주세요.');return}
+  gate('')})();
+})();
+</script>
+</body>
+</html>

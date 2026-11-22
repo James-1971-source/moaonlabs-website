@@ -1,0 +1,104 @@
+{
+  "updated": "2026-11-21",
+  "sections": [
+    {
+      "id": "ai",
+      "title": "AI 도구 배우기",
+      "desc": "챗GPT·제미나이·클로드 등 수업에서 쓰는 AI 도구를 따라 하며 익히는 영상입니다. (유료 계정 기준)"
+    },
+    {
+      "id": "howto",
+      "title": "콘티온 사용법",
+      "desc": "처음 쓰는 분도 따라 할 수 있도록 콘티온 편집 과정을 차례대로 보여 드립니다."
+    },
+    {
+      "id": "sample",
+      "title": "콘티온 시연·샘플",
+      "desc": "콘티온으로 직접 만든 시연 영상과 3D·홀로그램 샘플입니다."
+    }
+  ],
+  "videos": [
+    {
+      "id": "chatgpt",
+      "section": "ai",
+      "title": "챗GPT 제대로 활용하기 (심화)",
+      "desc": "질문 잘하기부터 프로젝트, 에이전트 등 심화 기능까지 따라 하며 익힙니다.",
+      "level": "수업 영상",
+      "duration": 1382,
+      "youtube": "4jdeXuvjtak"
+    },
+    {
+      "id": "claude",
+      "section": "ai",
+      "title": "Claude 완전정복 (11월 업데이트)",
+      "desc": "클로드의 주요 기능과 활용법을 처음부터 차근차근 안내합니다.",
+      "level": "수업 영상",
+      "duration": 1031,
+      "youtube": "WHQZ-uuT-YY"
+    },
+    {
+      "id": "claude-design",
+      "section": "ai",
+      "title": "클로드 디자인으로 홍보물·발표자료 만들기",
+      "desc": "클로드 디자인으로 홍보물과 발표자료를 직접 만들어 봅니다.",
+      "level": "수업 영상",
+      "duration": 862,
+      "youtube": "c2WW3GTkUQs"
+    },
+    {
+      "id": "contion-staff",
+      "section": "howto",
+      "title": "콘티온 사용법 · 복지시설 담당자편",
+      "desc": "기관 담당자가 콘티온으로 홍보·기록 영상을 만드는 과정을 따라 합니다.",
+      "level": "사용법",
+      "duration": 340,
+      "youtube": "xEw9xPaMR5Q"
+    },
+    {
+      "id": "contion-youth",
+      "section": "howto",
+      "title": "콘티온 사용법 · 청소년편",
+      "desc": "청소년이 쉽게 따라 할 수 있도록 핵심 기능만 짧게 정리했습니다.",
+      "level": "사용법",
+      "duration": 136,
+      "youtube": "YPqC041i04c"
+    },
+    {
+      "id": "contion-demo",
+      "section": "sample",
+      "title": "콘티온 기능 시연 (세로 30초)",
+      "desc": "콘티온의 주요 기능을 30초 세로 영상으로 보여 드립니다.",
+      "level": "시연",
+      "duration": 30,
+      "vertical": true,
+      "youtube": "-vKFARXbE1o"
+    },
+    {
+      "id": "hologram",
+      "section": "sample",
+      "title": "손바닥 홀로그램 샘플",
+      "desc": "손 인식으로 손바닥 위에 3D 홀로그램을 띄운 샘플입니다.",
+      "level": "샘플",
+      "duration": 27,
+      "youtube": "98uXzAfFoTM"
+    },
+    {
+      "id": "3d-showcase",
+      "section": "sample",
+      "title": "3D 소재 40종 쇼케이스",
+      "desc": "콘티온에 들어 있는 3D 소재 40종을 한눈에 보여 드립니다.",
+      "level": "샘플",
+      "duration": 46,
+      "youtube": "rfWnHn-CTOE"
+    },
+    {
+      "id": "3d-demo",
+      "section": "sample",
+      "title": "3D 소재 시연",
+      "desc": "3D 소재를 장면에 넣어 움직이는 모습을 보여 주는 시연입니다.",
+      "level": "샘플",
+      "duration": 30,
+      "youtube": "07GiHELmQHk"
+    }
+  ]
+}
