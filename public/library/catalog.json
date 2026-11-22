@@ -15,6 +15,11 @@
       "id": "sample",
       "title": "콘티온 시연·샘플",
       "desc": "콘티온으로 직접 만든 시연 영상과 3D·홀로그램 샘플입니다."
+    },
+    {
+      "id": "docs",
+      "title": "수업 자료",
+      "desc": "수업에서 쓰는 엑셀·워드·텍스트 실습 파일입니다. 필요한 파일만 받거나 전체를 압축 파일로 한 번에 받을 수 있습니다."
     }
   ],
   "videos": [
@@ -99,6 +104,138 @@
       "level": "샘플",
       "duration": 30,
       "youtube": "07GiHELmQHk"
+    }
+  ],
+  "materials": [
+    {
+      "id": "claude-practice",
+      "section": "docs",
+      "title": "클로드 실습자료 (주간업무보고 만들기)",
+      "desc": "클로드 수업에서 쓰는 실습 파일입니다. 실습1~7 폴더별 진행법과 엑셀·워드·텍스트 원본, 복사해 쓰는 프롬프트가 들어 있습니다. 모든 회사·인물·수치는 실습용 가상 자료입니다.",
+      "base": "files/claude-practice-k7q2/",
+      "zip": "클로드실습자료.zip",
+      "files": [
+        {
+          "path": "_원본자료/01_주간매출.xlsx",
+          "size": 13546
+        },
+        {
+          "path": "_원본자료/02_회의록.docx",
+          "size": 38007
+        },
+        {
+          "path": "_원본자료/03_업무진행현황.xlsx",
+          "size": 6349
+        },
+        {
+          "path": "_원본자료/04_기존보고서.docx",
+          "size": 37614
+        },
+        {
+          "path": "_원본자료/05_업무보고_작성규칙.txt",
+          "size": 1139
+        },
+        {
+          "path": "00_프롬프트_복붙용.txt",
+          "size": 5758
+        },
+        {
+          "path": "실습1_Chat_엑셀분석/_이 폴더 진행법.txt",
+          "size": 1089
+        },
+        {
+          "path": "실습1_Chat_엑셀분석/01_주간매출.xlsx",
+          "size": 13546
+        },
+        {
+          "path": "실습2_Project_규칙기억/_이 폴더 진행법.txt",
+          "size": 1819
+        },
+        {
+          "path": "실습2_Project_규칙기억/04_기존보고서.docx",
+          "size": 37614
+        },
+        {
+          "path": "실습2_Project_규칙기억/05_업무보고_작성규칙.txt",
+          "size": 1139
+        },
+        {
+          "path": "실습2_Project_규칙기억/주간업무보고_20260817-0823.docx",
+          "size": 11596
+        },
+        {
+          "path": "실습3_Artifacts_결과물/_이 폴더 진행법.txt",
+          "size": 1965
+        },
+        {
+          "path": "실습4_Cowork_업무위임/_이 폴더 진행법.txt",
+          "size": 1568
+        },
+        {
+          "path": "실습4_Cowork_업무위임/01_주간매출.xlsx",
+          "size": 13546
+        },
+        {
+          "path": "실습4_Cowork_업무위임/02_회의록.docx",
+          "size": 38007
+        },
+        {
+          "path": "실습4_Cowork_업무위임/04_기존보고서.docx",
+          "size": 37614
+        },
+        {
+          "path": "실습5_ClaudeCode_폴더통째/_이 폴더 진행법.txt",
+          "size": 2208
+        },
+        {
+          "path": "실습5_ClaudeCode_폴더통째/01_주간매출.xlsx",
+          "size": 13546
+        },
+        {
+          "path": "실습5_ClaudeCode_폴더통째/02_회의록.docx",
+          "size": 38007
+        },
+        {
+          "path": "실습5_ClaudeCode_폴더통째/03_업무진행현황.xlsx",
+          "size": 6349
+        },
+        {
+          "path": "실습5_ClaudeCode_폴더통째/04_기존보고서.docx",
+          "size": 37614
+        },
+        {
+          "path": "실습5_ClaudeCode_폴더통째/05_주간업무보고_260817-0823.docx",
+          "size": 38619
+        },
+        {
+          "path": "실습5_ClaudeCode_폴더통째/06_주간업무보고_260817-0823_ver2.docx",
+          "size": 38771
+        },
+        {
+          "path": "실습5_ClaudeCode_폴더통째/07_주간업무보고_260817-0823_최종.docx",
+          "size": 39287
+        },
+        {
+          "path": "실습5_ClaudeCode_폴더통째/08_주간업무보고_260817-0823.docx",
+          "size": 11865
+        },
+        {
+          "path": "실습6_Skill_규칙재사용/_이 폴더 진행법.txt",
+          "size": 1840
+        },
+        {
+          "path": "실습7_Connector_외부연결/_이 폴더 진행법.txt",
+          "size": 1476
+        },
+        {
+          "path": "클로드강의자료.txt",
+          "size": 288
+        },
+        {
+          "path": "클로드실습자료.zip",
+          "size": 453823
+        }
+      ]
     }
   ]
 }

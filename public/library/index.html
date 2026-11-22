@@ -68,7 +68,23 @@ dialog{max-height:94vh;overflow:auto}
 .pv-body video,.pv-body iframe{width:100%;height:100%;border:0;display:block;background:#000}
 .pv-wait{color:var(--sub);font-size:14px;padding:30px;text-align:center;line-height:1.8}
 .pv-foot{padding:12px 16px;font-size:13px;color:var(--sub);line-height:1.7}
-footer{color:var(--mute);font-size:12px;text-align:center;padding:30px 16px;border-top:1px solid var(--line)}
+.mat{border:1px solid var(--line);border-radius:14px;background:var(--card);overflow:hidden}
+.mat-head{display:flex;flex-wrap:wrap;gap:14px;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.mat-head .ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:#17303a;font-size:22px}
+.mat-head h3{margin:0 0 4px;font-size:16px;color:#fff}.mat-head p{margin:0;font-size:13px;color:var(--sub);line-height:1.6;max-width:720px}
+.mat-head .btn{margin-left:auto}
+.folder{border-top:1px solid #1b2733}.folder:first-of-type{border-top:0}
+.folder summary{cursor:pointer;padding:12px 20px;font-size:14px;color:#e8f2f6;list-style:none;display:flex;gap:8px;align-items:center}
+.folder summary::-webkit-details-marker{display:none}.folder summary::before{content:'▸';color:var(--accent)}.folder[open] summary::before{content:'▾'}
+.folder summary small{color:var(--mute);margin-left:4px}
+.flist{list-style:none;margin:0;padding:0 20px 12px 38px}
+.flist li{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px dashed #1d2a36;font-size:13.5px}
+.flist li:last-child{border-bottom:0}
+.flist .ft{flex:0 0 auto;padding:1px 7px;border-radius:5px;font-size:11px;font-weight:700}
+.ft.xlsx{background:#16382a;color:#6fe0a6}.ft.docx{background:#182c48;color:#8db8ff}.ft.txt{background:#2b2b33;color:#c9cbd6}.ft.zip{background:#3a2f16;color:#f0c46a}
+.flist .fn{flex:1;min-width:0;overflow-wrap:anywhere;color:var(--text)}
+.flist .fs{color:var(--mute);font-size:12px}
+.flist a{color:var(--accent2);text-decoration:none;font-size:12.5px;white-space:nowrap}footer{color:var(--mute);font-size:12px;text-align:center;padding:30px 16px;border-top:1px solid var(--line)}
 @media (max-width:600px){header nav .btn span{display:none}.hero{padding:20px}}
 </style>
 </head>
@@ -84,7 +100,7 @@ footer{color:var(--mute);font-size:12px;text-align:center;padding:30px 16px;bord
   <main>
     <div class="hero">
       <h1>콘티온 자료실</h1>
-      <p>승인된 기관과 선생님을 위한 영상 자료실입니다. AI 도구 수업 영상, 콘티온 사용법, 콘티온으로 만든 시연·샘플 영상을 모아 두었습니다.<br>영상은 이 화면에서만 보실 수 있으며, 외부 공유나 재배포는 하지 말아 주세요.</p>
+      <p>승인된 기관과 선생님을 위한 수업 자료실입니다. AI 도구 수업 영상, 콘티온 사용법·시연 영상, 수업 실습 파일을 모아 두었습니다.<br>영상과 자료는 수업 목적으로만 써 주시고, 외부 공유나 재배포는 하지 말아 주세요.</p>
       <div class="who" id="who"></div>
     </div>
     <div class="tabs" id="tabs" role="toolbar" aria-label="분류"></div>
@@ -113,7 +129,7 @@ function gate(msg){
   root.classList.add('ct-gating');
   let g=document.getElementById('ctGate');
   if(!g){g=document.createElement('div');g.id='ctGate';document.body.append(g)}
-  g.innerHTML='<div class="ct-card"><div class="ct-logo">▶</div><h1>콘티온 자료실</h1><p class="ct-sub">승인된 분만 볼 수 있는 영상 자료실입니다.<br>안내받은 <b>이용 코드</b>를 넣어 주세요.<br><span style="font-size:12.5px">한 번 넣으면 이 브라우저에서는 다음부터 바로 열립니다.</span></p><form id="ctForm"><input id="ctCode" autocomplete="off" spellcheck="false" placeholder="예: CT-AB12-CD34" aria-label="이용 코드"><button type="submit">입장하기</button></form><p class="ct-msg" role="alert"></p><p class="ct-foot">이용을 원하시면 <a href="'+APPLY+'" target="_blank" rel="noopener">모아온랩스에 신청</a>해 주세요. · 문의 contact@moaonlabs.com</p></div>';
+  g.innerHTML='<div class="ct-card"><div class="ct-logo">▶</div><h1>콘티온 자료실</h1><p class="ct-sub">승인된 분만 볼 수 있는 수업 자료실입니다.<br>안내받은 <b>이용 코드</b>를 넣어 주세요.<br><span style="font-size:12.5px">한 번 넣으면 이 브라우저에서는 다음부터 바로 열립니다.</span></p><form id="ctForm"><input id="ctCode" autocomplete="off" spellcheck="false" placeholder="예: CT-AB12-CD34" aria-label="이용 코드"><button type="submit">입장하기</button></form><p class="ct-msg" role="alert"></p><p class="ct-foot">이용을 원하시면 <a href="'+APPLY+'" target="_blank" rel="noopener">모아온랩스에 신청</a>해 주세요. · 문의 contact@moaonlabs.com</p></div>';
   g.querySelector('.ct-msg').textContent=msg||'';
   const inp=g.querySelector('#ctCode');setTimeout(()=>inp.focus(),50);
   g.querySelector('#ctForm').onsubmit=async ev=>{ev.preventDefault();const m=g.querySelector('.ct-msg');const code=inp.value;
@@ -132,6 +148,18 @@ let CAT=null,cur='all';
 const fmt=s=>{s=Math.round(s||0);const h=Math.floor(s/3600),m=Math.floor(s%3600/60),x=s%60;return (h?h+':'+String(m).padStart(2,'0'):m)+':'+String(x).padStart(2,'0')};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const ready=v=>!!(v.youtube||v.src);
+const kb=n=>n<1024*1024?Math.max(1,Math.round(n/1024))+'KB':(n/1048576).toFixed(1)+'MB';
+const ext=p=>(p.split('.').pop()||'').toLowerCase();
+const furl=(m,p)=>m.base+p.split('/').map(encodeURIComponent).join('/');
+const fileLi=(m,f)=>{const name=f.path.split('/').pop();return '<li><span class="ft '+esc(ext(name))+'">'+esc(ext(name).toUpperCase())+'</span><span class="fn">'+esc(name)+'</span><span class="fs">'+kb(f.size)+'</span><a href="'+esc(furl(m,f.path))+'" download="'+esc(name)+'">받기 ↓</a></li>'};
+function matHtml(m){
+  const groups={};for(const f of m.files){const i=f.path.lastIndexOf('/');const g=i<0?'':f.path.slice(0,i);(groups[g]=groups[g]||[]).push(f)}
+  const keys=Object.keys(groups).sort((a,b)=>a===''?-1:b===''?1:a.localeCompare(b,'ko'));
+  const top=(groups['']||[]);
+  return '<div class="mat"><div class="mat-head"><div class="ico">📁</div><div><h3>'+esc(m.title)+'</h3><p>'+esc(m.desc)+' · 파일 '+m.files.length+'개</p></div>'+(m.zip?'<a class="btn primary" href="'+esc(furl(m,m.zip))+'" download>전체 한 번에 받기 (ZIP) ↓</a>':'')+'</div>'+
+    (top.length?'<details class="folder" open><summary>기본 파일 <small>'+top.length+'개</small></summary><ul class="flist">'+top.map(f=>fileLi(m,f)).join('')+'</ul></details>':'')+
+    keys.filter(k=>k).map(k=>'<details class="folder"><summary>'+esc(k.replace(/_/g,' ').trim())+' <small>'+groups[k].length+'개</small></summary><ul class="flist">'+groups[k].map(f=>fileLi(m,f)).join('')+'</ul></details>').join('')+'</div>';
+}
 async function render(){
   if(!CAT){try{const r=await fetch('catalog.json?t='+Date.now(),{cache:'no-store'});CAT=await r.json()}catch{document.getElementById('list').innerHTML='<p class="desc">자료 목록을 불러오지 못했습니다. 잠시 뒤 새로고침해 주세요.</p>';return}}
   const tabs=document.getElementById('tabs');
@@ -139,6 +167,8 @@ async function render(){
   tabs.onclick=e=>{const b=e.target.closest('button');if(!b)return;cur=b.dataset.id;render()};
   const secs=CAT.sections.filter(s=>cur==='all'||s.id===cur);
   document.getElementById('list').innerHTML=secs.map(s=>{
+    const mats=(CAT.materials||[]).filter(m=>m.section===s.id);
+    if(mats.length) return '<section><h2>'+esc(s.title)+'</h2><p class="desc">'+esc(s.desc||'')+'</p>'+mats.map(matHtml).join('')+'</section>';
     const items=CAT.videos.filter(v=>v.section===s.id);
     return '<section><h2>'+esc(s.title)+' <small style="color:var(--mute);font-weight:500;font-size:13px">'+items.length+'편</small></h2><p class="desc">'+esc(s.desc||'')+'</p><div class="grid">'+items.map(v=>
       '<button class="item" data-id="'+esc(v.id)+'"><div class="thumb'+(v.vertical?' vertical':'')+'" style="background-image:url(\'thumbs/'+esc(v.id)+'.jpg\')"><span class="dur">'+fmt(v.duration)+'</span><span class="play"><b>▶</b></span></div><div class="meta"><h3>'+esc(v.title)+'</h3><p>'+esc(v.desc)+'</p>'+(ready(v)?(v.level?'<span class="tag">'+esc(v.level)+'</span>':''):'<span class="tag wait">업로드 준비 중</span>')+'</div></button>'
