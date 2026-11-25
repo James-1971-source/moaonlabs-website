@@ -7,7 +7,7 @@
   <meta name="referrer" content="no-referrer">
   <link rel="icon" href="/sites/moaon/favicon.svg">
   <meta name="theme-color" content="#f5f4ec">
-  <title>삼덕 수업 과제 제출 | 모아온랩스</title>
+  <title>삼덕 수업 자료실 · 과제 제출 | 모아온랩스</title>
   <style>
     :root{color-scheme:light;--paper:#f5f4ec;--white:#fffef9;--ink:#172c24;--muted:#495c52;--pine:#194a36;--deep:#123d2d;--lime:#d8eeaa;--mist:#eaf0df;--line:#d8ded1;--warning:#843b22;--warnBg:#fff2e5;--danger:#922c26;--dangerBg:#fff0ed;--shadow:0 12px 32px rgba(24,48,34,.08);font-family:Pretendard,'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',system-ui,sans-serif}
     *,*::before,*::after{box-sizing:border-box}
@@ -34,6 +34,19 @@
     .hero-kicker::before{content:'';width:7px;height:7px;background:#dcf0a8;border-radius:2px;transform:rotate(-15deg);flex:none}
     .hero h1{font-size:clamp(2.12rem,6.2vw,3.6rem);line-height:1.14;letter-spacing:-.08em;font-weight:850;word-break:keep-all}
     .hero p{margin-top:13px;color:#e2eadd;font-size:clamp(.88rem,2.35vw,1.04rem);line-height:1.65;word-break:keep-all}
+    .materials-shortcut{margin-top:16px;text-decoration:none}
+    .hero .materials-shortcut{color:var(--deep);background:var(--lime);border-color:transparent}
+    .hero .materials-shortcut:hover{background:#e7f4cb}
+    .hero .materials-shortcut:focus-visible{outline-color:#fffef9}
+    #materials{margin-top:14px;scroll-margin-top:16px}
+    #materialList{list-style:none;margin:0;padding:0}
+    .material-row{padding:12px 0;border-top:1px solid var(--line)}
+    .material-row:last-child{padding-bottom:0}
+    .material-row .button,#materialsRetry{min-height:44px}
+    .material-file{display:flex;align-items:center;justify-content:space-between;gap:8px 14px;flex-wrap:wrap}
+    .material-name{font-size:.92rem}
+    .material-size{margin-top:2px}
+    #materialsRetry{margin-top:11px}
     .hero-art{position:absolute;right:clamp(-15px,2vw,38px);top:50%;transform:translateY(-50%);width:clamp(218px,34vw,380px);height:auto;pointer-events:none;z-index:-1}
     .layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(247px,306px);gap:22px;align-items:start;margin-block:24px 26px}
     .card{background:var(--white);border:1px solid var(--line);border-radius:21px;box-shadow:var(--shadow);min-width:0}
@@ -124,7 +137,8 @@
       <div class="hero-copy">
         <div class="hero-kicker" lang="en">SAMDEOK CLASS</div>
         <h1 id="pageTitle">삼덕 수업<br>과제 제출</h1>
-        <p>받은 코드로 과제를 확인하고, 하나씩 제출하세요.</p>
+        <p>받은 코드로 수업 자료를 내려받고, 내 과제를 확인해 제출하세요.</p>
+        <a class="button secondary materials-shortcut" href="#materials" data-materials-link>수업 자료실 바로가기 ↓</a>
       </div>
       <svg class="hero-art" viewBox="0 0 350 254" fill="none" aria-hidden="true" focusable="false">
         <defs><pattern id="dots" width="11" height="11" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1.1" fill="#cee0b7" opacity=".44"/></pattern></defs>
@@ -133,19 +147,19 @@
         <path d="M259 47c2 10 5 14 15 16-10 2-13 5-15 15-2-10-6-13-16-15 10-2 14-6 16-16Z" fill="#e3f0b2"/><circle cx="96" cy="118" r="4.5" fill="#d5ed9f"/><circle cx="299" cy="121" r="3" fill="#e2f2b3"/><path d="M109 200h16m-8-8v16" stroke="#e0eaaf" stroke-width="2" stroke-linecap="round"/>
       </svg>
     </section>
-    <noscript><p class="notice error noscript">과제를 제출하려면 브라우저 설정에서 자바스크립트를 켜고 다시 열어 주세요.</p></noscript>
+    <noscript><p class="notice error noscript">수업 자료를 받거나 과제를 제출하려면 브라우저 설정에서 자바스크립트를 켜고 다시 열어 주세요.</p></noscript>
     <div class="layout">
       <div>
         <section class="card pad" id="access" aria-labelledby="accessTitle">
           <p class="overline">01 / 코드 확인</p>
-          <h2 id="accessTitle">과제 제출 코드</h2>
-          <p class="intro">수업에서 안내받은 16자리 코드를 입력해 주세요.</p>
+          <h2 id="accessTitle">수강생 코드 확인</h2>
+          <p class="intro">수업에서 안내받은 16자리 코드를 입력하면 수업 자료를 내려받고 과제를 제출할 수 있어요.</p>
           <form id="codeForm" autocomplete="off" novalidate>
-            <label for="code">제출 코드</label>
+            <label for="code">수강생 코드</label>
             <input class="control code-input" id="code" type="password" placeholder="•••• •••• •••• ••••" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-describedby="codeHint codeMessage" required>
             <p class="hint" id="codeHint">숫자(0–9)와 영문(A–F)으로 된 코드예요. 공백이나 하이픈이 있어도 돼요.</p>
             <p id="codeMessage" class="notice" role="status" aria-live="polite" hidden></p>
-            <button id="checkButton" class="button primary block" type="submit">과제 확인</button>
+            <button id="checkButton" class="button primary block" type="submit">자료·과제 열기</button>
           </form>
           <div class="privacy">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 1 1 8 0v3m-4 5v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
@@ -162,14 +176,23 @@
             </div>
             <button id="exitButton" class="button secondary" type="button">코드 화면으로</button>
           </div>
+          <a class="button secondary materials-shortcut" href="#materials" data-materials-link>수업 자료실 바로가기 ↓</a>
           <div id="taskList"></div>
+          <section id="materials" class="card pad" aria-labelledby="materialsTitle">
+            <p class="overline">수강생 전용</p>
+            <h2 id="materialsTitle" tabindex="-1">수업 자료실</h2>
+            <p class="intro">파일 옆의 ‘다운로드’를 눌러 저장하세요. 파일당 최대 10 MiB까지 받을 수 있어요.</p>
+            <p id="materialsStatus" class="notice" role="status" hidden></p>
+            <button id="materialsRetry" class="button secondary" type="button" hidden>자료 목록 다시 불러오기</button>
+            <ul id="materialList" aria-label="수업 자료 목록" hidden></ul>
+          </section>
         </section>
       </div>
       <aside class="card guide" aria-labelledby="guideTitle">
         <p class="overline" lang="en">QUICK GUIDE</p>
         <h2 id="guideTitle">제출 안내</h2>
         <ol class="steps">
-          <li><span class="step-no" aria-hidden="true">01</span><div><strong>코드 확인</strong><p>안내받은 코드로 내 과제를 열어요.</p></div></li>
+          <li><span class="step-no" aria-hidden="true">01</span><div><strong>코드 확인</strong><p>안내받은 코드로 수업 자료실과 내 과제를 열어요.</p></div></li>
           <li><span class="step-no" aria-hidden="true">02</span><div><strong>과제별로 작성</strong><p>리서치 과제는 메모나 파일, 사이트 과제는 HTTPS 링크를 제출해요.</p></div></li>
           <li><span class="step-no" aria-hidden="true">03</span><div><strong>접수 확인</strong><p>과제마다 제출을 누른 뒤 접수번호를 확인해요. 필요하면 다시 제출할 수 있어요.</p></div></li>
         </ol>
@@ -177,7 +200,7 @@
       </aside>
     </div>
   </main>
-  <footer class="frame footer"><strong lang="en">MOAON LABS</strong><span>삼덕 수업 과제 제출 페이지</span></footer>
+  <footer class="frame footer"><strong lang="en">MOAON LABS</strong><span>삼덕 수업 자료실 · 과제 제출</span></footer>
   <script>
     (() => {
       'use strict';
@@ -192,11 +215,17 @@
       const $taskList = get('taskList');
       const $alias = get('alias');
       const $progress = get('progress');
+      const $materials = get('materials');
+      const $materialsTitle = get('materialsTitle');
+      const $materialsStatus = get('materialsStatus');
+      const $materialsRetry = get('materialsRetry');
+      const $materialList = get('materialList');
       const MAX_BYTES = 10 * 1024 * 1024;
       const MAX_NOTE = 8000;
       const EXTENSIONS = ['txt', 'pdf', 'docx', 'hwp', 'hwpx', 'png', 'jpg', 'jpeg', 'webp'];
       const countFormat = new Intl.NumberFormat('ko-KR');
       let accessCode = '';
+      let materialSession = null;
       let checking = false;
       let sessionBusy = 0;
       let taskCount = 0;
@@ -221,18 +250,31 @@
       function nonemptyText(value, fallback = '') {
         return typeof value === 'string' && value.trim() ? value : fallback;
       }
-      async function rpc(method, value) {
+      async function rpc(method, value, sessionSignal) {
+        let payload;
+        switch (method) {
+          case 'checkCode': payload = {action:'check',code:value}; break;
+          case 'submitWork': payload = {action:'submit',data:value}; break;
+          case 'materials': payload = {action:'materials',code:value.code}; break;
+          case 'downloadMaterial': payload = {action:'downloadMaterial',code:value.code,id:value.id}; break;
+          default: throw new Error('unknown_action');
+        }
         const ctrl = new AbortController();
-        const timer = window.setTimeout(() => ctrl.abort(), 90000);
+        const abort = () => ctrl.abort();
+        if (sessionSignal?.aborted) abort();
+        else sessionSignal?.addEventListener('abort', abort, {once:true});
+        const timer = window.setTimeout(abort, 90000);
         try {
-          const payload = method === 'checkCode' ? {action:'check',code:value} : {action:'submit',data:value};
           const result = await fetch("https://script.google.com/macros/s/AKfycbxozLeHFjR3USis2lHZ7ZqGZCpziAVsv1Kugn3MAY2kQyjftwhX1puR2Jr8TL5Qu4l9ig/exec", {
             method:'POST', mode:'cors', credentials:'omit', cache:'no-store', referrerPolicy:'no-referrer',
             headers:{'Content-Type':'text/plain;charset=UTF-8'}, body:JSON.stringify(payload), signal:ctrl.signal,
           });
           if (!result.ok) throw new Error('request_failed');
           return await result.json();
-        } finally { window.clearTimeout(timer); }
+        } finally {
+          window.clearTimeout(timer);
+          sessionSignal?.removeEventListener('abort', abort);
+        }
       }
       function requestId() {
         const crypto = window.crypto;
@@ -254,7 +296,7 @@
         checking = value;
         $code.readOnly = value;
         $check.disabled = value;
-        $check.textContent = value ? '코드 확인 중…' : '과제 확인';
+        $check.textContent = value ? '코드 확인 중…' : '자료·과제 열기';
       }
       function failCode(message, invalid) {
         setNotice($codeMessage, 'error', message);
@@ -266,6 +308,7 @@
       }
       function clearSession() {
         accessCode = '';
+        clearMaterials();
         taskCount = completeCount = 0;
         $alias.textContent = '';
         $alias.hidden = true;
@@ -295,7 +338,135 @@
         $codeForm.reset();
         $access.hidden = true;
         $workspace.hidden = false;
-        get('workTitle').focus();
+        clearMaterials();
+        // Each login has its own identity, even when the same code is entered again.
+        materialSession = {aborter:new AbortController(), loading:false};
+        if (location.hash === '#materials') goToMaterials();
+        else get('workTitle').focus();
+        void loadMaterials(materialSession);
+      }
+      function goToMaterials() {
+        if ($workspace.hidden) {
+          $access.scrollIntoView({block:'start'});
+          $code.focus({preventScroll:true});
+        } else {
+          $materials.scrollIntoView({block:'start'});
+          $materialsTitle.focus({preventScroll:true});
+        }
+      }
+      function isMaterialSession(session) {
+        return Boolean(session && session === materialSession && accessCode);
+      }
+      function clearMaterials() {
+        const previous = materialSession;
+        materialSession = null;
+        previous?.aborter.abort();
+        $materialList.replaceChildren();
+        $materialList.hidden = true;
+        $materialsRetry.hidden = true;
+        setNotice($materialsStatus, '', '');
+      }
+      function lockMaterials(session, message) {
+        if (!isMaterialSession(session)) return;
+        const active = document.activeElement;
+        const returnFocus = $materialList.contains(active) || active === $materialsRetry;
+        clearMaterials();
+        const prompt = '자료를 이용하려면 코드 화면으로 돌아가 코드를 다시 확인해 주세요.';
+        setNotice($materialsStatus, 'warn', nonemptyText(message) ? message + '\n' + prompt : prompt);
+        if (returnFocus) $materialsTitle.focus({preventScroll:true});
+      }
+      function makeMaterial(file, session) {
+        const row = el('li', 'material-row');
+        const line = el('div', 'material-file');
+        const info = el('div');
+        const tooLarge = file.size > MAX_BYTES;
+        const size = file.size === 0 ? '0 B' : fileSize(file.size);
+        info.append(el('p', 'material-name', file.name), el('p', 'hint material-size', size + (tooLarge ? ' · 10 MiB 초과' : '')));
+        const download = button('다운로드', 'secondary');
+        download.setAttribute('aria-label', file.name + ' 다운로드');
+        download.disabled = tooLarge;
+        const status = el('p', 'notice');
+        status.setAttribute('role', 'status');
+        status.hidden = true;
+        line.append(info, download);
+        row.append(line, status);
+        download.addEventListener('click', async () => {
+          if (!isMaterialSession(session) || download.disabled) return;
+          download.disabled = true;
+          download.textContent = '준비 중…';
+          download.setAttribute('aria-label', file.name + ' 다운로드 준비 중');
+          setNotice(status, 'pending', '다운로드를 준비하고 있어요.');
+          try {
+            const result = await rpc('downloadMaterial', {code:accessCode, id:file.id}, session.aborter.signal);
+            if (!isMaterialSession(session)) return;
+            if (result?.ok === false && result.locked === true) { lockMaterials(session, result.message); return; }
+            if (result?.ok === false) {
+              setNotice(status, 'error', nonemptyText(result.message, '파일을 받을 수 없어요. 잠시 후 다시 시도해 주세요.'));
+              return;
+            }
+            if (result?.ok !== true || typeof result.base64 !== 'string' || !nonemptyText(result.name)) throw new Error('invalid_response');
+            if (result.base64.length > Math.ceil(MAX_BYTES / 3) * 4) throw new Error('material_size');
+            const decoded = atob(result.base64);
+            if (decoded.length > MAX_BYTES) throw new Error('material_size');
+            const bytes = Uint8Array.from(decoded, (character) => character.charCodeAt(0));
+            const name = result.name.replace(/[\x00-\x1F\x7F\u202A-\u202E\u2066-\u2069\\/]/g, '_').trim();
+            const link = el('a');
+            const objectUrl = URL.createObjectURL(new Blob([bytes], {type:'application/octet-stream'}));
+            link.href = objectUrl;
+            link.download = name && name !== '.' && name !== '..' ? name : '수업자료';
+            link.hidden = true;
+            try {
+              document.body.append(link);
+              link.click();
+            } finally {
+              link.remove();
+              window.setTimeout(() => URL.revokeObjectURL(objectUrl), 30000);
+            }
+            setNotice(status, 'pending', '다운로드를 요청했어요. 브라우저 다운로드 목록을 확인해 주세요.');
+          } catch (error) {
+            if (!isMaterialSession(session)) return;
+            setNotice(status, 'error', error?.message === 'material_size'
+              ? '파일이 10 MiB를 넘어 받을 수 없어요.'
+              : '파일을 받지 못했어요. 네트워크 상태를 확인하고 다시 시도해 주세요.');
+          } finally {
+            if (isMaterialSession(session)) {
+              download.disabled = false;
+              download.textContent = '다운로드';
+              download.setAttribute('aria-label', file.name + ' 다운로드');
+            }
+          }
+        });
+        return row;
+      }
+      async function loadMaterials(session) {
+        if (!isMaterialSession(session) || session.loading) return;
+        session.loading = true;
+        $materialsRetry.hidden = true;
+        setNotice($materialsStatus, 'pending', '수업 자료 목록을 불러오는 중이에요.');
+        try {
+          const result = await rpc('materials', {code:accessCode}, session.aborter.signal);
+          if (!isMaterialSession(session)) return;
+          if (result?.ok === false && result.locked === true) { lockMaterials(session, result.message); return; }
+          if (result?.ok === false) {
+            setNotice($materialsStatus, 'error', nonemptyText(result.message, '자료 목록을 불러오지 못했어요. 다시 시도해 주세요.'));
+            $materialsRetry.hidden = false;
+            return;
+          }
+          if (result?.ok !== true || !Array.isArray(result.files)) throw new Error('invalid_response');
+          if (result.files.some((file) => !file || !(nonemptyText(file.id) || Number.isSafeInteger(file.id))
+            || !nonemptyText(file.name) || !Number.isSafeInteger(file.size) || file.size < 0)) throw new Error('invalid_response');
+          const fragment = document.createDocumentFragment();
+          result.files.forEach((file) => fragment.append(makeMaterial(file, session)));
+          $materialList.replaceChildren(fragment);
+          $materialList.hidden = result.files.length === 0;
+          setNotice($materialsStatus, 'pending', result.files.length ? '' : '아직 등록된 수업 자료가 없어요.');
+        } catch (_) {
+          if (!isMaterialSession(session)) return;
+          setNotice($materialsStatus, 'error', '자료 목록을 불러오지 못했어요. 네트워크 상태를 확인하고 다시 시도해 주세요.');
+          $materialsRetry.hidden = false;
+        } finally {
+          if (isMaterialSession(session)) session.loading = false;
+        }
       }
       function validLink(value) {
         if (!/^https:\/\//i.test(value) || /[\s\u0000-\u001f\u007f\\]/.test(value)) return false;
@@ -585,6 +756,19 @@
         return card;
       }
 
+      $materialsRetry.addEventListener('click', () => { void loadMaterials(materialSession); });
+      document.querySelectorAll('[data-materials-link]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+          if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+          if (location.hash === '#materials') {
+            event.preventDefault();
+            goToMaterials();
+          }
+        });
+      });
+      window.addEventListener('hashchange', () => {
+        if (location.hash === '#materials') goToMaterials();
+      });
       $code.addEventListener('input', () => {
         $code.removeAttribute('aria-invalid');
         setNotice($codeMessage, '', '');
@@ -604,7 +788,7 @@
             showTasks(code, nonemptyText(result.alias), result.tasks);
           } else if (result && result.ok === false) {
             failCode(nonemptyText(result.message, '코드를 확인할 수 없어요. 받은 코드를 다시 확인해 주세요.'), true);
-          } else failCode('과제 목록을 불러오지 못했어요. 잠시 후 다시 시도해 주세요.', false);
+          } else failCode('수강생 정보를 불러오지 못했어요. 잠시 후 다시 시도해 주세요.', false);
         } catch (error) {
           if (error && error.message === 'missing_apps_script') failCode('이 파일은 과제 제출 서버에 연결되어 있지 않아요. 수업에서 공유한 과제 제출 페이지 주소로 열어 주세요.', false);
           else failCode('코드를 확인하지 못했어요. 네트워크 상태를 확인하고 다시 시도해 주세요.', false);
