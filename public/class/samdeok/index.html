@@ -38,7 +38,8 @@
     .hero .materials-shortcut{color:var(--deep);background:var(--lime);border-color:transparent}
     .hero .materials-shortcut:hover{background:#e7f4cb}
     .hero .materials-shortcut:focus-visible{outline-color:#fffef9}
-    #materials{margin-top:14px;scroll-margin-top:16px}
+    #materials{margin-bottom:14px;scroll-margin-top:16px}
+    #materials:target{border-color:var(--pine);outline:2px solid var(--pine);outline-offset:3px}
     #materialList{list-style:none;margin:0;padding:0}
     .material-row{padding:12px 0;border-top:1px solid var(--line)}
     .material-row:last-child{padding-bottom:0}
@@ -136,8 +137,8 @@
     <section class="hero" aria-labelledby="pageTitle">
       <div class="hero-copy">
         <div class="hero-kicker" lang="en">SAMDEOK CLASS</div>
-        <h1 id="pageTitle">삼덕 수업<br>과제 제출</h1>
-        <p>받은 코드로 수업 자료를 내려받고, 내 과제를 확인해 제출하세요.</p>
+        <h1 id="pageTitle">삼덕 수업<br>자료실 · 과제 제출</h1>
+        <p>수업 자료는 코드 없이 받을 수 있어요. 내 과제를 확인하고 제출할 때만 수강생 코드를 입력하세요.</p>
         <a class="button secondary materials-shortcut" href="#materials" data-materials-link>수업 자료실 바로가기 ↓</a>
       </div>
       <svg class="hero-art" viewBox="0 0 350 254" fill="none" aria-hidden="true" focusable="false">
@@ -150,16 +151,24 @@
     <noscript><p class="notice error noscript">수업 자료를 받거나 과제를 제출하려면 브라우저 설정에서 자바스크립트를 켜고 다시 열어 주세요.</p></noscript>
     <div class="layout">
       <div>
+        <section id="materials" class="card pad" aria-labelledby="materialsTitle">
+          <p class="overline">코드 없이 이용</p>
+          <h2 id="materialsTitle" tabindex="-1">수업 자료실</h2>
+          <p class="intro">수강생 코드 없이 수업 자료를 받을 수 있어요. 파일 옆의 ‘다운로드’를 눌러 저장하세요. 파일당 최대 10 MiB까지 받을 수 있어요.</p>
+          <p id="materialsStatus" class="notice" role="status" hidden></p>
+          <button id="materialsRetry" class="button secondary" type="button" hidden>자료 목록 다시 불러오기</button>
+          <ul id="materialList" aria-label="수업 자료 목록" hidden></ul>
+        </section>
         <section class="card pad" id="access" aria-labelledby="accessTitle">
           <p class="overline">01 / 코드 확인</p>
           <h2 id="accessTitle">수강생 코드 확인</h2>
-          <p class="intro">수업에서 안내받은 16자리 코드를 입력하면 수업 자료를 내려받고 과제를 제출할 수 있어요.</p>
+          <p class="intro">내 과제를 확인하거나 제출하려면 수업에서 안내받은 16자리 코드를 입력하세요.</p>
           <form id="codeForm" autocomplete="off" novalidate>
             <label for="code">수강생 코드</label>
             <input class="control code-input" id="code" type="password" placeholder="•••• •••• •••• ••••" autocomplete="off" autocapitalize="characters" autocorrect="off" spellcheck="false" enterkeyhint="go" aria-describedby="codeHint codeMessage" required>
             <p class="hint" id="codeHint">숫자(0–9)와 영문(A–F)으로 된 코드예요. 공백이나 하이픈이 있어도 돼요.</p>
             <p id="codeMessage" class="notice" role="status" aria-live="polite" hidden></p>
-            <button id="checkButton" class="button primary block" type="submit">자료·과제 열기</button>
+            <button id="checkButton" class="button primary block" type="submit">내 과제 열기</button>
           </form>
           <div class="privacy">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 1 1 8 0v3m-4 5v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
@@ -176,23 +185,15 @@
             </div>
             <button id="exitButton" class="button secondary" type="button">코드 화면으로</button>
           </div>
-          <a class="button secondary materials-shortcut" href="#materials" data-materials-link>수업 자료실 바로가기 ↓</a>
+          <a class="button secondary materials-shortcut" href="#materials" data-materials-link>수업 자료실 바로가기 ↑</a>
           <div id="taskList"></div>
-          <section id="materials" class="card pad" aria-labelledby="materialsTitle">
-            <p class="overline">수강생 전용</p>
-            <h2 id="materialsTitle" tabindex="-1">수업 자료실</h2>
-            <p class="intro">파일 옆의 ‘다운로드’를 눌러 저장하세요. 파일당 최대 10 MiB까지 받을 수 있어요.</p>
-            <p id="materialsStatus" class="notice" role="status" hidden></p>
-            <button id="materialsRetry" class="button secondary" type="button" hidden>자료 목록 다시 불러오기</button>
-            <ul id="materialList" aria-label="수업 자료 목록" hidden></ul>
-          </section>
         </section>
       </div>
       <aside class="card guide" aria-labelledby="guideTitle">
         <p class="overline" lang="en">QUICK GUIDE</p>
         <h2 id="guideTitle">제출 안내</h2>
         <ol class="steps">
-          <li><span class="step-no" aria-hidden="true">01</span><div><strong>코드 확인</strong><p>안내받은 코드로 수업 자료실과 내 과제를 열어요.</p></div></li>
+          <li><span class="step-no" aria-hidden="true">01</span><div><strong>코드 확인</strong><p>안내받은 코드로 내 과제를 열어요. 수업 자료는 코드 없이 받을 수 있어요.</p></div></li>
           <li><span class="step-no" aria-hidden="true">02</span><div><strong>과제별로 작성</strong><p>리서치 과제는 메모나 파일, 사이트 과제는 HTTPS 링크를 제출해요.</p></div></li>
           <li><span class="step-no" aria-hidden="true">03</span><div><strong>접수 확인</strong><p>과제마다 제출을 누른 뒤 접수번호를 확인해요. 필요하면 다시 제출할 수 있어요.</p></div></li>
         </ol>
@@ -225,7 +226,7 @@
       const EXTENSIONS = ['txt', 'pdf', 'docx', 'hwp', 'hwpx', 'png', 'jpg', 'jpeg', 'webp'];
       const countFormat = new Intl.NumberFormat('ko-KR');
       let accessCode = '';
-      let materialSession = null;
+      let materialsLoading = false;
       let checking = false;
       let sessionBusy = 0;
       let taskCount = 0;
@@ -255,8 +256,8 @@
         switch (method) {
           case 'checkCode': payload = {action:'check',code:value}; break;
           case 'submitWork': payload = {action:'submit',data:value}; break;
-          case 'materials': payload = {action:'materials',code:value.code}; break;
-          case 'downloadMaterial': payload = {action:'downloadMaterial',code:value.code,id:value.id}; break;
+          case 'materials': payload = {action:'materials'}; break;
+          case 'downloadMaterial': payload = {action:'downloadMaterial',id:value.id}; break;
           default: throw new Error('unknown_action');
         }
         const ctrl = new AbortController();
@@ -296,7 +297,7 @@
         checking = value;
         $code.readOnly = value;
         $check.disabled = value;
-        $check.textContent = value ? '코드 확인 중…' : '자료·과제 열기';
+        $check.textContent = value ? '코드 확인 중…' : '내 과제 열기';
       }
       function failCode(message, invalid) {
         setNotice($codeMessage, 'error', message);
@@ -308,7 +309,6 @@
       }
       function clearSession() {
         accessCode = '';
-        clearMaterials();
         taskCount = completeCount = 0;
         $alias.textContent = '';
         $alias.hidden = true;
@@ -338,44 +338,13 @@
         $codeForm.reset();
         $access.hidden = true;
         $workspace.hidden = false;
-        clearMaterials();
-        // Each login has its own identity, even when the same code is entered again.
-        materialSession = {aborter:new AbortController(), loading:false};
-        if (location.hash === '#materials') goToMaterials();
-        else get('workTitle').focus();
-        void loadMaterials(materialSession);
+        get('workTitle').focus();
       }
       function goToMaterials() {
-        if ($workspace.hidden) {
-          $access.scrollIntoView({block:'start'});
-          $code.focus({preventScroll:true});
-        } else {
-          $materials.scrollIntoView({block:'start'});
-          $materialsTitle.focus({preventScroll:true});
-        }
+        $materials.scrollIntoView({block:'start'});
+        $materialsTitle.focus({preventScroll:true});
       }
-      function isMaterialSession(session) {
-        return Boolean(session && session === materialSession && accessCode);
-      }
-      function clearMaterials() {
-        const previous = materialSession;
-        materialSession = null;
-        previous?.aborter.abort();
-        $materialList.replaceChildren();
-        $materialList.hidden = true;
-        $materialsRetry.hidden = true;
-        setNotice($materialsStatus, '', '');
-      }
-      function lockMaterials(session, message) {
-        if (!isMaterialSession(session)) return;
-        const active = document.activeElement;
-        const returnFocus = $materialList.contains(active) || active === $materialsRetry;
-        clearMaterials();
-        const prompt = '자료를 이용하려면 코드 화면으로 돌아가 코드를 다시 확인해 주세요.';
-        setNotice($materialsStatus, 'warn', nonemptyText(message) ? message + '\n' + prompt : prompt);
-        if (returnFocus) $materialsTitle.focus({preventScroll:true});
-      }
-      function makeMaterial(file, session) {
+      function makeMaterial(file) {
         const row = el('li', 'material-row');
         const line = el('div', 'material-file');
         const info = el('div');
@@ -391,17 +360,15 @@
         line.append(info, download);
         row.append(line, status);
         download.addEventListener('click', async () => {
-          if (!isMaterialSession(session) || download.disabled) return;
+          if (download.disabled) return;
           download.disabled = true;
           download.textContent = '준비 중…';
           download.setAttribute('aria-label', file.name + ' 다운로드 준비 중');
           setNotice(status, 'pending', '다운로드를 준비하고 있어요.');
           try {
-            const result = await rpc('downloadMaterial', {code:accessCode, id:file.id}, session.aborter.signal);
-            if (!isMaterialSession(session)) return;
-            if (result?.ok === false && result.locked === true) { lockMaterials(session, result.message); return; }
+            const result = await rpc('downloadMaterial', {id:file.id});
             if (result?.ok === false) {
-              setNotice(status, 'error', nonemptyText(result.message, '파일을 받을 수 없어요. 잠시 후 다시 시도해 주세요.'));
+              setNotice(status, 'error', '파일을 받을 수 없어요. 잠시 후 다시 시도해 주세요.');
               return;
             }
             if (result?.ok !== true || typeof result.base64 !== 'string' || !nonemptyText(result.name)) throw new Error('invalid_response');
@@ -424,31 +391,26 @@
             }
             setNotice(status, 'pending', '다운로드를 요청했어요. 브라우저 다운로드 목록을 확인해 주세요.');
           } catch (error) {
-            if (!isMaterialSession(session)) return;
             setNotice(status, 'error', error?.message === 'material_size'
               ? '파일이 10 MiB를 넘어 받을 수 없어요.'
               : '파일을 받지 못했어요. 네트워크 상태를 확인하고 다시 시도해 주세요.');
           } finally {
-            if (isMaterialSession(session)) {
-              download.disabled = false;
-              download.textContent = '다운로드';
-              download.setAttribute('aria-label', file.name + ' 다운로드');
-            }
+            download.disabled = false;
+            download.textContent = '다운로드';
+            download.setAttribute('aria-label', file.name + ' 다운로드');
           }
         });
         return row;
       }
-      async function loadMaterials(session) {
-        if (!isMaterialSession(session) || session.loading) return;
-        session.loading = true;
+      async function loadMaterials() {
+        if (materialsLoading) return;
+        materialsLoading = true;
         $materialsRetry.hidden = true;
         setNotice($materialsStatus, 'pending', '수업 자료 목록을 불러오는 중이에요.');
         try {
-          const result = await rpc('materials', {code:accessCode}, session.aborter.signal);
-          if (!isMaterialSession(session)) return;
-          if (result?.ok === false && result.locked === true) { lockMaterials(session, result.message); return; }
+          const result = await rpc('materials');
           if (result?.ok === false) {
-            setNotice($materialsStatus, 'error', nonemptyText(result.message, '자료 목록을 불러오지 못했어요. 다시 시도해 주세요.'));
+            setNotice($materialsStatus, 'error', '자료 목록을 불러오지 못했어요. 다시 시도해 주세요.');
             $materialsRetry.hidden = false;
             return;
           }
@@ -456,16 +418,15 @@
           if (result.files.some((file) => !file || !(nonemptyText(file.id) || Number.isSafeInteger(file.id))
             || !nonemptyText(file.name) || !Number.isSafeInteger(file.size) || file.size < 0)) throw new Error('invalid_response');
           const fragment = document.createDocumentFragment();
-          result.files.forEach((file) => fragment.append(makeMaterial(file, session)));
+          result.files.forEach((file) => fragment.append(makeMaterial(file)));
           $materialList.replaceChildren(fragment);
           $materialList.hidden = result.files.length === 0;
           setNotice($materialsStatus, 'pending', result.files.length ? '' : '아직 등록된 수업 자료가 없어요.');
         } catch (_) {
-          if (!isMaterialSession(session)) return;
           setNotice($materialsStatus, 'error', '자료 목록을 불러오지 못했어요. 네트워크 상태를 확인하고 다시 시도해 주세요.');
           $materialsRetry.hidden = false;
         } finally {
-          if (isMaterialSession(session)) session.loading = false;
+          materialsLoading = false;
         }
       }
       function validLink(value) {
@@ -756,7 +717,10 @@
         return card;
       }
 
-      $materialsRetry.addEventListener('click', () => { void loadMaterials(materialSession); });
+      $materialsRetry.addEventListener('click', () => {
+        $materialsTitle.focus({preventScroll:true});
+        void loadMaterials();
+      });
       document.querySelectorAll('[data-materials-link]').forEach((link) => {
         link.addEventListener('click', (event) => {
           if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
@@ -804,6 +768,8 @@
         if (event.persisted) window.location.reload();
       });
       $codeForm.reset();
+      if (location.hash === '#materials') goToMaterials();
+      void loadMaterials();
     })();
   </script>
 </body>
